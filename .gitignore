@@ -1,0 +1,14 @@
+ReactNativeNodeJsMongo/node_modules/**/*
+ReactNativeNodeJsMongo/.expo/*
+ReactNativeNodeJsMongo/npm-debug.*
+ReactNativeNodeJsMongo/*.jks
+ReactNativeNodeJsMongo/*.p8
+ReactNativeNodeJsMongo/*.p12
+ReactNativeNodeJsMongo/*.key
+ReactNativeNodeJsMongo/*.mobileprovision
+ReactNativeNodeJsMongo/*.orig.*
+ReactNativeNodeJsMongo/web-build/
+ReactNativeNodeJsMongo/web-report/
+
+# macOS
+ReactNativeNodeJsMongo/.DS_Store
