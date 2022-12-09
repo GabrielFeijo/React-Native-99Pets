@@ -50,8 +50,8 @@ export const styles = StyleSheet.create({
    
       flexDirection:"row",
       alignItems:"center",
-      marginVertical:10
-      
+      marginVertical:10,
+    
 
       
     },

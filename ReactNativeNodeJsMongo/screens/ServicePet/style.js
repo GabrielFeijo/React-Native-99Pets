@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   wrap: {
     minWidth:350,
-    maxHeight:220 
+    maxHeight:240 
   }   
     
 });

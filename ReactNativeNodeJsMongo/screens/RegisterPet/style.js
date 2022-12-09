@@ -23,7 +23,8 @@ export const ViewFoto = styled.TouchableOpacity`
 
 `;
 export const MainButton = styled.TouchableOpacity`
-    display: block;
+  
+
     width: 297px;
     padding: 10px;
     background-color: #FFBD59;
@@ -37,47 +38,60 @@ export const MainButton = styled.TouchableOpacity`
 
 
 export const styles = StyleSheet.create({
-    root: {
-      flex: 1,     
-   
-      justifyContent:"space-around",
-      alignContent:"space-between",
-      alignItems:"center",
-     
-    },
-    center:{
-        alignItems:"center",
-      
-    },
-    wrap: {
-      flex: 1,     
-      justifyContent:"space-around",
-      alignContent:"center",   
-    },
-    image: {
-      width: 180,
-      height: 180
-    },
-    desc:{
-      color:"white",
-      marginTop:10,
-      fontSize:20,
-      fontFamily: "Montserrat_400Regular",
-      textAlign:"center",
-    },
-     modalView: {
-      position: 'absolute',
-      bottom: 2,
-      width: '100%',
-      backgroundColor: 'white',
-    },
-    modalButtonView: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      padding: 10,
-    },
+  loadingScreen: {
+    position: "absolute",
+  
+    display: "flex",
+    width: "100%",
+    height: "110%",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#0008",
+    opacity: 1,
+    zIndex: 9999,
+  },
+  root: {
+    flex: 1,     
+  
+    justifyContent:"space-around",
+    alignContent:"space-between",
+    alignItems:"center",
     
-  });
+  },
+  center:{
+      alignItems:"center",
+    
+  },
+  wrap: {
+    flex: 1,     
+    justifyContent:"space-around",
+    alignContent:"center",   
+  },
+  image: {
+    width: 180,
+    height: 180
+  },
+  desc:{
+    color:"white",
+    marginTop:10,
+    fontSize:20,
+    fontFamily: "Montserrat_400Regular",
+    textAlign:"center",
+  },
+    modalView: {
+    position: 'absolute',
+    bottom: 2,
+    width: '100%',
+    backgroundColor: 'white',
+  },
+  modalButtonView: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
+    
+});
 
 //  width: 130px;
 //     font-family: 'OpenSans-Regular',Arial, Helvetica, sans-serif;

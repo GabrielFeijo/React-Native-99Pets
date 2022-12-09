@@ -3,7 +3,6 @@ import {  StyleSheet } from "react-native";
 
 
 export const Button = styled.TouchableOpacity`
-    display: block;
     width: 297px;
     padding: 10px;
     background-color: #FFBD59;

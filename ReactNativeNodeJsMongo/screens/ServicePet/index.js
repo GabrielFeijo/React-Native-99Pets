@@ -1,35 +1,15 @@
-import React, { useState } from 'react';
-import {  View} from 'react-native';
+import React, { useState,useEffect } from 'react';
+import {  View,Alert} from 'react-native';
 import { Text,styles } from './style';
 import { NineMenu } from '../Menu'
 import {  StyleSheet } from "react-native";
-import Card from '../Card';
+import {Card} from '../Card';
 import {  Button,   ButtonText } from '../Home/style';
 
 import RNPickerSelect from 'react-native-picker-select';
 
-{/* <option value="none" selected disabled>Qual serviço?</option>
-            <option value="Banho e Tosa">Banho & Tosa</option>
-            <option value="Consultas veterinárias">Consultas veterinárias</option>
-            <option value="Vacinas">Vacinas</option>
-            <option value="Hospedagem">Hospedagem</option>
-            <option value="Spa">Spa</option> */}
 
-export const Dropdown = () => {
-  return (
-      <RNPickerSelect 
-          onValueChange={(value) => console.log(value)}
-          items={[
-              { label: 'Banho e Tosa', value: 'Banho & Tosa' },
-              { label: 'Consultas veterinárias', value: 'Consultas veterinárias' },
-              { label: 'Vacinas', value: 'Vacinas' },
-              { label: 'Hospedagem', value: 'Hospedagem' },
-              { label: 'Spa', value: 'Spa' },
-          ]}
-          style={pickerSelectStyles}
-      />
-  );
-};
+
 
 const pickerSelectStyles = StyleSheet.create({
   inputIOS: {
@@ -62,6 +42,49 @@ const pickerSelectStyles = StyleSheet.create({
 
 
 const ServicePet = (props) => {
+  const [selected, setSelected] = useState("Banho & Tosa");
+  const  petid  = props.route.params
+  const [pet, setPet] = useState([]);
+  const fetchPet = (id) => {
+    fetch('https://99-pets-api.gabrielfeijo.repl.co/onePet?id='+id)
+      .then((res) => res.json())
+      .then((results) => {       
+        console.log(results.nome)
+        setPet(results)        
+        })
+      .catch((err) => {
+        Alert.alert('Algo deu errado!');
+      });
+  };
+  useEffect(() => {    
+    fetchPet(petid)
+  }, []);
+
+
+  
+ const Dropdown = () => {
+
+  return (
+      <RNPickerSelect 
+          value={selected}
+          onValueChange={(value) => {
+            
+            setSelected(value)
+          }}
+          
+          items={[
+              
+              { label: 'Banho e Tosa', value: 'Banho & Tosa' },
+              { label: 'Consultas veterinárias', value: 'Consultas veterinárias' },
+              { label: 'Vacinas', value: 'Vacinas' },
+              { label: 'Hospedagem', value: 'Hospedagem' },
+              { label: 'Spa', value: 'Spa' },
+          ]}
+         
+          style={pickerSelectStyles}
+      />
+  );
+};
  
  return (
     <>
@@ -69,13 +92,20 @@ const ServicePet = (props) => {
       
       <View style={styles.root}>
         <View style={styles.wrap}>
-          <Card />        
+          {pet&&                      
+              <Card    
+                nome={pet.nome}
+                info={pet.idade}
+                info2={pet.raca}   
+                url={pet.picture}         
+                />
+          }     
           <Text  onPress={() => { props.navigation.navigate("ListPets")}}>Não é esse pet?</Text>   
         </View>
         <View>
           <Dropdown />   
         </View>
-        <Button><ButtonText>Próximo</ButtonText></Button>
+        <Button onPress={() => { props.navigation.navigate("Locations",{selected,petid})}}><ButtonText>Próximo</ButtonText></Button>
       </View>
     </>
    
