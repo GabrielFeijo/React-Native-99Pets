@@ -171,12 +171,11 @@ const EditPet = (props) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}>
+        <NineMenu />
         <KeyboardAvoidingView
           behavior="position"
           style={styles.root}
           enabled={enableshift}>
-          <NineMenu />
-
           <View style={styles.wrap}>
             {pet && (
               <Card nome={nome} info={idade} info2={raca} url={picture} />

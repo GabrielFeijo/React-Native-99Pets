@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
 
   button: {
     width: 150,
-    height: 53,
+    height: 50,
   },
   color: {
     color: '#FFBD59',

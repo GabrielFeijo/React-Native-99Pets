@@ -7,9 +7,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: 10,
+    padding: 10,
+    paddingTop:15,
+    backgroundColor:"#F2F2F2",
+   zIndex:99
   },
   image: {
+  
     width: 56,
     height: 56,
   },
