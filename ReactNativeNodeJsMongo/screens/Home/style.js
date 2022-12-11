@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import {  StyleSheet } from "react-native";
-
+import { StyleSheet } from 'react-native';
 
 export const Button = styled.TouchableOpacity`
     width: 297px;
@@ -21,7 +20,7 @@ export const ButtonText = styled.Text`
    
 `;
 
-export const   LoginText = styled.Text`
+export const LoginText = styled.Text`
     
     color: #8B8585;
     font-family: Montserrat_500Medium;    
@@ -40,26 +39,22 @@ export const Line = styled.View`
    
 `;
 
-
-
 export const styles = StyleSheet.create({
-    root: {
-      flex: 1,
-      justifyContent:"space-around",
-      alignItems:"center"
-    },
-    logo: {
-      width: 180,
-      height: 180,
-      borderRadius:100,
-  
-    },
-    txtLogin:{
-        display:"inline",
-        color:"#8B8585",
-        
-    }
-  });
+  root: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 180,
+    height: 180,
+    borderRadius: 100,
+  },
+  txtLogin: {
+    display: 'inline',
+    color: '#8B8585',
+  },
+});
 
 //   .txt-login{
 //     display: inline;

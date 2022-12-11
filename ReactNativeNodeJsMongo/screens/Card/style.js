@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {  StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const Titulo = styled.Text`
   color: black;
@@ -40,24 +40,14 @@ export const Description = styled.View`
   justify-content: center;
 `;
 
-
-
 export const styles = StyleSheet.create({
-     wrap: {
-      flex: 1,  
-      flexWrap:"wrap",
-      justifyContent:"center",
-   
-      flexDirection:"row",
-      alignItems:"center",
-      marginVertical:10,
-    
+  wrap: {
+    flex: 1,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
 
-      
-    },
-
-   
-   
-    
-  });
-
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+});

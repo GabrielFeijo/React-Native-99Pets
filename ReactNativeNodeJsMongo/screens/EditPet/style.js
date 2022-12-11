@@ -1,27 +1,6 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
-export const Titulo = styled.Text`
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: Montserrat_400Regular; 
-  margin-top:20px;
-`;
-
-export const ViewFoto = styled.TouchableOpacity`
-  position: relative;
-  width: 190px;
-  height: 190px;
-  background-color: #8B8585;
-  margin: auto;
-  border-radius: 16px;
-  
-  display:flex;
-  justify-content:center;
-  align-content:center;
-
-`;
 export const MainButton = styled.TouchableOpacity`
   
 
@@ -35,11 +14,30 @@ export const MainButton = styled.TouchableOpacity`
 }
 `;
 
+export const ButtonDelete = styled.TouchableOpacity`
+    width: 297px;
+    padding: 10px;
+    background-color: #F2F2F2;
+    border:2px solid #FFBD59;
+    border-radius: 16px;
+   
+    margin:10px auto;
+    transition: 0.5s;
+
+}
+`;
+
+export const Text = styled.Text`
+  font-family: Montserrat_400Regular; 
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.57);
+
+`;
+
 export const styles = StyleSheet.create({
   loadingScreen: {
     position: 'absolute',
-
-    display: 'flex',
     width: '100%',
     height: '110%',
     flex: 1,
@@ -51,29 +49,48 @@ export const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: 40,
+  },
 
-    justifyContent: 'space-around',
-    alignContent: 'space-between',
-    alignItems: 'center',
-  },
-  center: {
-    alignItems: 'center',
-  },
   wrap: {
+    minWidth: 350,
+    maxHeight: 240,
+  },
+  flex: {
     flex: 1,
-    justifyContent: 'space-around',
-    alignContent: 'center',
+    flexDirection: 'row',
+    marginTop: 15,
+  },
+
+  center: {
+    marginTop: 20,
+  },
+
+  button: {
+    width: 150,
+    height: 53,
+  },
+  color: {
+    color: '#FFBD59',
+  },
+  input: {
+    width: 350,
+    marginTop: 0,
+  },
+  description: {
+    fontSize: 16,
+    color: '#000',
+    marginTop: 20,
+    marginBottom: 2,
+  },
+  text: {
+    margin: 5,
   },
   image: {
-    width: 180,
-    height: 180,
-  },
-  desc: {
-    color: 'white',
     marginTop: 10,
-    fontSize: 20,
-    fontFamily: 'Montserrat_400Regular',
-    textAlign: 'center',
+    fontSize: 16,
   },
   modalView: {
     position: 'absolute',
@@ -87,8 +104,3 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-//  width: 130px;
-//     font-family: 'OpenSans-Regular',Arial, Helvetica, sans-serif;
-//     color: white;
-//     margin-top: 10px;

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {  StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const Titulo = styled.Text`
   color: black;
@@ -17,37 +17,32 @@ export const Text = styled.Text`
   margin: 5px;
 `;
 
-
-
 export const styles = StyleSheet.create({
-    root: {
-      flex: 1,        
-      justifyContent:"space-around",
-      alignContent:"space-between",
-      alignItems:"center",     
-    },
-    center:{
-        alignItems:"center",      
-    },
-    wrap: {
-      flex: 1,    
-      alignItems:"center",
-      
-    },
-    icone:{
-      flex:1,
-      flexDirection:"row",
-      alignContent:"center",
-      alignItems:"center",
-      marginBottom:40
-    },
-    textIcone:{
-      fontSize:18,
-      fontFamily: "Montserrat_500Medium"
-    }
-
-   
-   
-    
-  });
-
+  root: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignContent: 'space-between',
+    alignItems: 'center',
+  },
+  center: {
+    alignItems: 'center',
+  },
+  wrap: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  icone: {
+    flex: 1,
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  textIcone: {
+    fontSize: 18,
+    fontFamily: 'Montserrat_500Medium',
+  },
+  texto: {
+    maxWidth: 350,
+  },
+});

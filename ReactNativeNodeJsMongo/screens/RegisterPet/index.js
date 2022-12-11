@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import {  View,KeyboardAvoidingView,Text,Modal,Alert,Image,ActivityIndicator} from 'react-native';
+import {
+  View,
+  KeyboardAvoidingView,
+  Text,
+  Modal,
+  Alert,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import { Input } from '../Login/style';
-import {ButtonText } from '../Home/style';
-import { MainButton,ViewFoto,styles } from './style';
+import { ButtonText } from '../Home/style';
+import { MainButton, ViewFoto, styles } from './style';
 import * as ImagePicker from 'expo-image-picker';
-import { Icon } from 'react-native-elements'
-import {  Button } from 'react-native-paper';
+import { Icon } from 'react-native-elements';
+import { Button } from 'react-native-paper';
 
 const RegisterPet = (props) => {
   const [enableshift, setenableShift] = useState(false);
@@ -15,52 +23,48 @@ const RegisterPet = (props) => {
   const [raca, onChangeRaca] = useState('');
   const [picture, setPicture] = useState('');
   const [loading, setLoading] = useState(false);
-  const usuario = props.route.params
+  const usuario = props.route.params;
 
-  function registrarPet(){
-    if (nome != "" && idade != "" && raca != "" && picture != ""  ){
-   
-      setLoading(true)
-      setenableShift(false)
-      fetch("https://99-Pets-Api.gabrielfeijo.repl.co/newPet", {
-        method: "post",
+  function registrarPet() {
+    if (nome != '' && idade != '' && raca != '' && picture != '') {
+      setLoading(true);
+      setenableShift(false);
+      fetch('https://99-Pets-Api.gabrielfeijo.repl.co/newPet', {
+        method: 'post',
         headers: {
           'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           userid: usuario,
           nome: nome,
           idade: idade,
           raca: raca,
-          picture: picture
+          picture: picture,
+        }),
+      })
+        .then((res) => {
+          return res;
         })
-      })
-     
-      .then((res) => {
-        return res;
-      })
-      .then((res) => {      
-        setLoading(false)
-        props.navigation.navigate("ListPets",{usuario})
-      })
-      .catch((err) => {
-        setLoading(false)
-        Alert.alert('Algo deu errado');
-      });
-    }else{
-      
-      Alert.alert("Preencha todas as informações")
-      
+        .then((res) => {
+          setLoading(false);
+          props.navigation.navigate('ListPets', { usuario });
+        })
+        .catch((err) => {
+          setLoading(false);
+          Alert.alert('Algo deu errado');
+        });
+    } else {
+      Alert.alert('Preencha todas as informações');
     }
-    onChangeNome("")
-    onChangeIdade("")
-    onChangeRaca("")
-    setPicture("")
+    onChangeNome('');
+    onChangeIdade('');
+    onChangeRaca('');
+    setPicture('');
   }
 
   const pickFromGallery = async () => {
-    const { granted } = await  ImagePicker.requestCameraPermissionsAsync();
+    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (granted) {
       let data = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -75,14 +79,14 @@ const RegisterPet = (props) => {
           name: `test.${data.uri.split('.')[1]}`,
         };
         handleUpload(newfile);
-        setLoading(true)
+        setLoading(true);
       }
     } else {
       Alert.alert('você precisa de permissão para isso');
     }
   };
   const pickFromCamera = async () => {
-    const { granted } =await ImagePicker.requestCameraPermissionsAsync();
+    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (granted) {
       let data = await ImagePicker.launchCameraAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -97,7 +101,7 @@ const RegisterPet = (props) => {
           name: `test.${data.uri.split('.')[1]}`,
         };
         handleUpload(newfile);
-        setLoading(true)
+        setLoading(true);
       }
     } else {
       Alert.alert('você precisa de permissão para isso');
@@ -118,41 +122,39 @@ const RegisterPet = (props) => {
       .then((data) => {
         setPicture(data.url);
         setModal(false);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => {
-        setLoading(false)
+        setLoading(false);
         Alert.alert('erro durante o upload');
       });
   };
 
- return (
+  return (
     <>
-    {loading && (
+      {loading && (
         <View style={styles.loadingScreen}>
-        <ActivityIndicator color="white" size="large"></ActivityIndicator>
+          <ActivityIndicator color="white" size="large"></ActivityIndicator>
         </View>
       )}
       <KeyboardAvoidingView
-      behavior="position"
-      style={styles.root}
-      enabled={enableshift}
-      >
-        <View  style={styles.wrap}>
-          <View >
-            <ViewFoto   onPress={() => setModal(true)} >
-             {picture  ? (
-              <Image
-              style={{ width: 190, height: 190,borderRadius:16 }}
-                source={{uri: picture}}
+        behavior="position"
+        style={styles.root}
+        enabled={enableshift}>
+        <View style={styles.wrap}>
+          <View>
+            <ViewFoto onPress={() => setModal(true)}>
+              {picture ? (
+                <Image
+                  style={{ width: 190, height: 190, borderRadius: 16 }}
+                  source={{ uri: picture }}
                 />
               ) : (
-              <>
-                <Icon name='pluscircleo' type='antdesign'/>
-                <Text style={styles.desc}  >Foto do pet</Text>
-              </>
+                <>
+                  <Icon name="pluscircleo" type="antdesign" />
+                  <Text style={styles.desc}>Foto do pet</Text>
+                </>
               )}
-      
             </ViewFoto>
           </View>
           <View>
@@ -165,57 +167,57 @@ const RegisterPet = (props) => {
               onFocus={() => setenableShift(true)}
             />
             <Input
-                value={idade}
-                onChangeText={onChangeIdade}
-                placeholder="Idade do pet"
-                label="Idade do pet"
-                placeholderTextColor="#8B8585"
-                onFocus={() => setenableShift(true)}
-              />
-              <Input
-                value={raca}
-                onChangeText={onChangeRaca}
-                placeholder="Raça do pet"
-                label="Raça do pet"
-                placeholderTextColor="#8B8585"
-                onFocus={() => setenableShift(true)}
-              />
-      
-      
-            <MainButton onPress={() => {registrarPet()}}><ButtonText >Próximo</ButtonText></MainButton>
+              value={idade}
+              onChangeText={onChangeIdade}
+              placeholder="Idade do pet"
+              label="Idade do pet"
+              placeholderTextColor="#8B8585"
+              onFocus={() => setenableShift(true)}
+            />
+            <Input
+              value={raca}
+              onChangeText={onChangeRaca}
+              placeholder="Raça do pet"
+              label="Raça do pet"
+              placeholderTextColor="#8B8585"
+              onFocus={() => setenableShift(true)}
+            />
+
+            <MainButton
+              onPress={() => {
+                registrarPet();
+              }}>
+              <ButtonText>Próximo</ButtonText>
+            </MainButton>
             <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modal}
-            onRequestClose={() => {
-              setModal(false);
-            }}
-          >
-            <View style={styles.modalView}>
-              <View style={styles.modalButtonView}>
-                <Button
-                  icon="camera"
-                  theme={theme}
-                  mode="contained"
-                  onPress={() => pickFromCamera()}
-                >
-                  Câmera
-                </Button>
-                <Button
-                  icon="image-area"
-                  mode="contained"
-                  theme={theme}
-                  onPress={() => pickFromGallery()}
-                >
-                  Galeria
+              animationType="slide"
+              transparent={true}
+              visible={modal}
+              onRequestClose={() => {
+                setModal(false);
+              }}>
+              <View style={styles.modalView}>
+                <View style={styles.modalButtonView}>
+                  <Button
+                    icon="camera"
+                    theme={theme}
+                    mode="contained"
+                    onPress={() => pickFromCamera()}>
+                    Câmera
+                  </Button>
+                  <Button
+                    icon="image-area"
+                    mode="contained"
+                    theme={theme}
+                    onPress={() => pickFromGallery()}>
+                    Galeria
+                  </Button>
+                </View>
+                <Button color="black" onPress={() => setModal(false)}>
+                  Cancelar
                 </Button>
               </View>
-              <Button color='black' onPress={() => setModal(false)}>
-                Cancelar
-              </Button>
-            </View>
-          </Modal>
-      
+            </Modal>
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -230,5 +232,3 @@ const theme = {
 };
 
 export default RegisterPet;
-
-

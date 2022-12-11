@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "99 Pets",
     "slug": "99pets",
     "privacy": "public",
     "platforms": [
@@ -30,6 +30,9 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "owner": "gabrielfeijo"
   }

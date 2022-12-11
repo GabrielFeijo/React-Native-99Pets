@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import {  StyleSheet } from "react-native";
-
+import { StyleSheet } from 'react-native';
 
 export const Text = styled.Text`
   font-family: Montserrat_400Regular; 
@@ -10,22 +9,15 @@ export const Text = styled.Text`
   margin: 5px;
 `;
 
-
-
 export const styles = StyleSheet.create({
-  root:{
-    flex:1,
-    alignItems:"center",
-    justifyContent:"space-between",
-    paddingBottom:40
-   
+  root: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: 40,
   },
   wrap: {
-    minWidth:350,
-    maxHeight:240 
-  }   
-    
+    minWidth: 350,
+    maxHeight: 240,
+  },
 });
-
-
-  
