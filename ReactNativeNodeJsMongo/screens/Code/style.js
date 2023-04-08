@@ -20,15 +20,7 @@ export const Input = styled.TextInput`
     padding-bottom: 10px;  
 `;
 
-export const Password = styled.Text`
-  text-align:center;
-  color: #8B8585;
-  font-family: Montserrat_500Medium;    
-  text-align:center;
-  line-height:20px;
-  
 
-`
 
 export const styles = StyleSheet.create({
   loadingScreen: {

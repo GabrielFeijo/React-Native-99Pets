@@ -8,20 +8,17 @@ import {
 } from 'react-native';
 import { Titulo, Input, styles, Link, Password } from './style';
 import { Button, ButtonText } from '../Home/style';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Login = (props) => {
+const Reset = (props) => {
 	const [enableshift, setenableShift] = useState(false);
 	const [email, onChangeEmail] = useState('');
-	const [senha, onChangePass] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	function login(props) {
-		if (email != '' && senha != '') {
+	function sendCode(props) {
+		if (email != '') {
 			onChangeEmail('');
-			onChangePass('');
 			setLoading(true);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/auth', {
+			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/send-code', {
 				method: 'post',
 				headers: {
 					'Access-Control-Allow-Origin': '*',
@@ -29,7 +26,6 @@ const Login = (props) => {
 				},
 				body: JSON.stringify({
 					email: email.toLowerCase(),
-					senha: senha,
 				}),
 			})
 				.then((res) => {
@@ -39,15 +35,12 @@ const Login = (props) => {
 				.then((res) => {
 					setLoading(false);
 					if (res.ok) {
-						let myPromise = res.json();
-						myPromise.then((infos) => {
-							storeData(infos.result);
-							props.navigation.navigate('ListPets');
-						});
-					} else if (res.status == 401) {
-						let myPromise = res.json();
-						myPromise.then((infos) => {
-							Alert.alert(infos.messages);
+						Alert.alert('Email enviado com sucesso!');
+						props.navigation.navigate('Code');
+					} else if (res.status == 400) {
+						let myPromise = res.text();
+						myPromise.then((message) => {
+							Alert.alert(message);
 						});
 					}
 				})
@@ -60,14 +53,6 @@ const Login = (props) => {
 		}
 	}
 
-	const storeData = async (value) => {
-		try {
-			const jsonValue = JSON.stringify(value);
-			await AsyncStorage.setItem('token_user', jsonValue);
-		} catch (e) {
-			// saving error
-		}
-	};
 	return (
 		<>
 			{loading && (
@@ -89,7 +74,7 @@ const Login = (props) => {
 							style={styles.image}
 							source={require('../../assets/images/login.png')}
 						/>
-						<Titulo>Faça seu login</Titulo>
+						<Titulo>Informe seu Email</Titulo>
 					</View>
 					<View>
 						<Input
@@ -100,30 +85,21 @@ const Login = (props) => {
 							placeholderTextColor='#8B8585'
 							onFocus={() => setenableShift(true)}
 						/>
-						<Input
-							value={senha}
-							onChangeText={onChangePass}
-							placeholder='Senha'
-							label='Senha'
-							secureTextEntry={true}
-							placeholderTextColor='#8B8585'
-							onFocus={() => setenableShift(true)}
-						/>
 
 						<Button
 							onPress={() => {
-								login(props);
+								sendCode(props);
 							}}
 						>
-							<ButtonText>Entrar</ButtonText>
+							<ButtonText>Enviar código</ButtonText>
 						</Button>
-						<Password
+						<Button
 							onPress={() => {
-								props.navigation.navigate('Reset');
+								props.navigation.navigate('Code');
 							}}
 						>
-							Esqueceu a senha?
-						</Password>
+							<ButtonText>Já tenho um código</ButtonText>
+						</Button>
 					</View>
 				</View>
 			</KeyboardAvoidingView>
@@ -131,4 +107,4 @@ const Login = (props) => {
 	);
 };
 
-export default Login;
+export default Reset;

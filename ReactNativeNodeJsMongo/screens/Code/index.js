@@ -8,28 +8,34 @@ import {
 } from 'react-native';
 import { Titulo, Input, styles, Link, Password } from './style';
 import { Button, ButtonText } from '../Home/style';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Login = (props) => {
+const Code = (props) => {
 	const [enableshift, setenableShift] = useState(false);
-	const [email, onChangeEmail] = useState('');
-	const [senha, onChangePass] = useState('');
+	const [code, onChangeCode] = useState('');
+	const [pass, onChangePass] = useState('');
+	const [rPass, onChangeRPass] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	function login(props) {
-		if (email != '' && senha != '') {
-			onChangeEmail('');
+	function verifyCode(props) {
+		if (code != '' && pass != '' && rPass != '') {
+			if (pass != rPass) {
+				Alert.alert('As senhas digitadas não coincidem!');
+				return;
+			}
+
+			onChangeRPass('');
 			onChangePass('');
+			onChangeCode('');
 			setLoading(true);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/auth', {
+			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/verify-code', {
 				method: 'post',
 				headers: {
 					'Access-Control-Allow-Origin': '*',
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					email: email.toLowerCase(),
-					senha: senha,
+					code: code.toLowerCase(),
+					senha: pass,
 				}),
 			})
 				.then((res) => {
@@ -39,15 +45,12 @@ const Login = (props) => {
 				.then((res) => {
 					setLoading(false);
 					if (res.ok) {
-						let myPromise = res.json();
-						myPromise.then((infos) => {
-							storeData(infos.result);
-							props.navigation.navigate('ListPets');
-						});
-					} else if (res.status == 401) {
-						let myPromise = res.json();
-						myPromise.then((infos) => {
-							Alert.alert(infos.messages);
+						Alert.alert('Senha alterada com sucesso!');
+						props.navigation.navigate('Login');
+					} else if (res.status == 400) {
+						let myPromise = res.text();
+						myPromise.then((message) => {
+							Alert.alert(message);
 						});
 					}
 				})
@@ -59,15 +62,6 @@ const Login = (props) => {
 			Alert.alert('Preencha todas as informações');
 		}
 	}
-
-	const storeData = async (value) => {
-		try {
-			const jsonValue = JSON.stringify(value);
-			await AsyncStorage.setItem('token_user', jsonValue);
-		} catch (e) {
-			// saving error
-		}
-	};
 	return (
 		<>
 			{loading && (
@@ -89,19 +83,20 @@ const Login = (props) => {
 							style={styles.image}
 							source={require('../../assets/images/login.png')}
 						/>
-						<Titulo>Faça seu login</Titulo>
+						<Titulo>Informe seu código e senha</Titulo>
 					</View>
 					<View>
 						<Input
-							value={email}
-							onChangeText={onChangeEmail}
-							placeholder='E-mail'
-							label='E-mail'
+							value={code}
+							onChangeText={onChangeCode}
+							placeholder='Código'
+							label='Código'
 							placeholderTextColor='#8B8585'
 							onFocus={() => setenableShift(true)}
 						/>
+
 						<Input
-							value={senha}
+							value={pass}
 							onChangeText={onChangePass}
 							placeholder='Senha'
 							label='Senha'
@@ -109,21 +104,30 @@ const Login = (props) => {
 							placeholderTextColor='#8B8585'
 							onFocus={() => setenableShift(true)}
 						/>
+						<Input
+							value={rPass}
+							onChangeText={onChangeRPass}
+							placeholder='Repita a Senha'
+							label='Repita a Senha'
+							secureTextEntry={true}
+							placeholderTextColor='#8B8585'
+							onFocus={() => setenableShift(true)}
+						/>
 
 						<Button
 							onPress={() => {
-								login(props);
+								verifyCode(props);
 							}}
 						>
-							<ButtonText>Entrar</ButtonText>
+							<ButtonText>Redefinir senha</ButtonText>
 						</Button>
-						<Password
+						<Button
 							onPress={() => {
-								props.navigation.navigate('Reset');
+								props.navigation.navigate('Login');
 							}}
 						>
-							Esqueceu a senha?
-						</Password>
+							<ButtonText>Voltar</ButtonText>
+						</Button>
 					</View>
 				</View>
 			</KeyboardAvoidingView>
@@ -131,4 +135,4 @@ const Login = (props) => {
 	);
 };
 
-export default Login;
+export default Code;
