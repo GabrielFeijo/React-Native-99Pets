@@ -20,7 +20,7 @@ const PhotoPet = (props) => {
 			if (userStorage !== null) {
 				// value previously stored
 				const userJson = JSON.parse(userStorage);
-				fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/myPets', {
+				fetch('https://api-99-pets.vercel.app/api/myPets', {
 					headers: {
 						id: userJson.id,
 						token: userJson.token,

@@ -47,7 +47,7 @@ const ServicePet = (props) => {
 		if (userStorage != null) {
 			const userJson = JSON.parse(userStorage);
 
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/onePet?id=' + id, {
+			fetch('https://api-99-pets.vercel.app/api/onePet?id=' + id, {
 				headers: {
 					id: userJson.id,
 					token: userJson.token,

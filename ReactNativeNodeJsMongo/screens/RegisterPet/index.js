@@ -33,7 +33,7 @@ const RegisterPet = (props) => {
 			if (userStorage != null) {
 				const userJson = JSON.parse(userStorage);
 
-				fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/newPet', {
+				fetch('https://api-99-pets.vercel.app/api/newPet', {
 					method: 'post',
 					headers: {
 						'Access-Control-Allow-Origin': '*',

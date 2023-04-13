@@ -27,7 +27,7 @@ const Code = (props) => {
 			onChangePass('');
 			onChangeCode('');
 			setLoading(true);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/verify-code', {
+			fetch('https://api-99-pets.vercel.app/api/verify-code', {
 				method: 'post',
 				headers: {
 					'Access-Control-Allow-Origin': '*',

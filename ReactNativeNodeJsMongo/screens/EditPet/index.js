@@ -35,7 +35,7 @@ const EditPet = (props) => {
 		if (userStorage != null) {
 			const userJson = JSON.parse(userStorage);
 			setUser(userJson);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/onePet?id=' + id, {
+			fetch('https://api-99-pets.vercel.app/api/onePet?id=' + id, {
 				headers: {
 					id: userJson.id,
 					token: userJson.token,
@@ -62,16 +62,13 @@ const EditPet = (props) => {
 	}, [petid]);
 
 	function deletePet(petid) {
-		fetch(
-			'https://99-Pets-Api.gabrielfeijo.repl.co/api/deletePet?id=' + petid,
-			{
-				method: 'DELETE',
-				headers: {
-					id: user.id,
-					token: user.token,
-				},
-			}
-		)
+		fetch('https://api-99-pets.vercel.app/api/deletePet?id=' + petid, {
+			method: 'DELETE',
+			headers: {
+				id: user.id,
+				token: user.token,
+			},
+		})
 			.then((res) => {
 				return res;
 			})
@@ -85,25 +82,22 @@ const EditPet = (props) => {
 			});
 	}
 	function updatePet(petid) {
-		fetch(
-			'https://99-Pets-Api.gabrielfeijo.repl.co/api/updatePet?id=' + petid,
-			{
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					id: user.id,
-					token: user.token,
-				},
-				method: 'PUT',
-				body: JSON.stringify({
-					userid: user.id,
-					nome: nome,
-					idade: idade,
-					raca: raca,
-					picture: picture,
-				}),
-			}
-		)
+		fetch('https://api-99-pets.vercel.app/api/updatePet?id=' + petid, {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				id: user.id,
+				token: user.token,
+			},
+			method: 'PUT',
+			body: JSON.stringify({
+				userid: user.id,
+				nome: nome,
+				idade: idade,
+				raca: raca,
+				picture: picture,
+			}),
+		})
 			.then((res) => {
 				return res;
 			})

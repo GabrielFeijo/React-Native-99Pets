@@ -30,7 +30,7 @@ const Register = (props) => {
 				onChangeConfirmSenha('');
 				setLoading(true);
 				setenableShift(false);
-				fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/createUser', {
+				fetch('https://api-99-pets.vercel.app/api/createUser', {
 					method: 'post',
 					headers: {
 						'Access-Control-Allow-Origin': '*',
@@ -50,7 +50,7 @@ const Register = (props) => {
 						if (res.status == 201) {
 							let myPromise = res.json();
 							myPromise.then((infos) => {
-								fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/auth', {
+								fetch('https://api-99-pets.vercel.app/api/auth', {
 									method: 'post',
 									headers: {
 										'Access-Control-Allow-Origin': '*',
@@ -142,6 +142,7 @@ const Register = (props) => {
 						<Input
 							value={account}
 							onChangeText={onChangeAccount}
+							autoCapitalize='none'
 							placeholder='Email'
 							label='Email'
 							placeholderTextColor='#8B8585'

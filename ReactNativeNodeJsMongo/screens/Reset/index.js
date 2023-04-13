@@ -18,7 +18,7 @@ const Reset = (props) => {
 		if (email != '') {
 			onChangeEmail('');
 			setLoading(true);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/send-code', {
+			fetch('https://api-99-pets.vercel.app/api/send-code', {
 				method: 'post',
 				headers: {
 					'Access-Control-Allow-Origin': '*',

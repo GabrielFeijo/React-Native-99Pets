@@ -21,7 +21,7 @@ const Login = (props) => {
 			onChangeEmail('');
 			onChangePass('');
 			setLoading(true);
-			fetch('https://99-Pets-Api.gabrielfeijo.repl.co/api/auth', {
+			fetch('https://api-99-pets.vercel.app/api/auth', {
 				method: 'post',
 				headers: {
 					'Access-Control-Allow-Origin': '*',
@@ -95,6 +95,7 @@ const Login = (props) => {
 						<Input
 							value={email}
 							onChangeText={onChangeEmail}
+							autoCapitalize='none'
 							placeholder='E-mail'
 							label='E-mail'
 							placeholderTextColor='#8B8585'
