@@ -1,25 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Home from './screens/Home/index';
-import Login from './screens/Login/index';
-import Register from './screens/Register/index';
-import ResetPassword from './screens/Reset/index';
-import Code from './screens/Code/index';
-import RegisterPet from './screens/RegisterPet/index';
-import ListPets from './screens/ListPets/index';
-import ServicePet from './screens/ServicePet/index';
-import ListLocations from './screens/ListLocations/index';
-import InfoLocation from './screens/InfoLocation/index';
-import DriverLocation from './screens/DriverLocation/index';
-import ListSquad from './screens/ListSquad/index';
-import ListAllLocations from './screens/ListAllLocations/index';
-import EditPet from './screens/EditPet/index';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { reducer } from './reducers/reducer';
 import {
 	useFonts,
 	Montserrat_100Thin,
@@ -41,96 +21,22 @@ import {
 	Montserrat_800ExtraBold_Italic,
 	Montserrat_900Black_Italic,
 } from '@expo-google-fonts/montserrat';
-
-const store = createStore(reducer);
-const Stack = createStackNavigator();
-
-const myOptions = {
-	title: '99 Pets',
-	headerTintColor: 'white',
-	headerStyle: {
-		backgroundColor: '#FFBD59',
-	},
-};
-
-function App() {
-	return (
-		<View style={styles.container}>
-			<Stack.Navigator>
-				<Stack.Screen
-					name='Home'
-					component={Home}
-					options={myOptions}
-				/>
-				<Stack.Screen
-					name='Login'
-					component={Login}
-					options={{ ...myOptions, title: 'Login' }}
-				/>
-				<Stack.Screen
-					name='Cadastro'
-					component={Register}
-					options={{ ...myOptions, title: 'Cadastro' }}
-				/>
-				<Stack.Screen
-					name='Reset'
-					component={ResetPassword}
-					options={{ ...myOptions, title: 'Redefinir senha' }}
-				/>
-				<Stack.Screen
-					name='Code'
-					component={Code}
-					options={{ ...myOptions, title: 'Código de redefinição' }}
-				/>
-				<Stack.Screen
-					name='CadastroPet'
-					component={RegisterPet}
-					options={{ ...myOptions, title: 'Cadastro de Pet' }}
-				/>
-				<Stack.Screen
-					name='ListPets'
-					component={ListPets}
-					options={{ ...myOptions, title: 'Meus Pets', headerLeft: null }}
-				/>
-				<Stack.Screen
-					name='ServicePet'
-					component={ServicePet}
-					options={{ ...myOptions, title: 'Escolha um serviço' }}
-				/>
-				<Stack.Screen
-					name='EditPet'
-					component={EditPet}
-					options={{ ...myOptions, title: 'Editar Pet' }}
-				/>
-				<Stack.Screen
-					name='Locations'
-					component={ListLocations}
-					options={{ ...myOptions, title: 'Escolha um Pet Shop' }}
-				/>
-				<Stack.Screen
-					name='InfoLocation'
-					component={InfoLocation}
-					options={{ ...myOptions, title: 'Informações' }}
-				/>
-				<Stack.Screen
-					name='DriverLocation'
-					component={DriverLocation}
-					options={{ ...myOptions, title: 'Acompanhe sua viagem' }}
-				/>
-				<Stack.Screen
-					name='ListSquad'
-					component={ListSquad}
-					options={{ ...myOptions, title: 'Equipe 99 Pets' }}
-				/>
-				<Stack.Screen
-					name='ListAllLocations'
-					component={ListAllLocations}
-					options={{ ...myOptions, title: 'Todos os Pet Shops' }}
-				/>
-			</Stack.Navigator>
-		</View>
-	);
-}
+import {
+	OpenSans_300Light,
+	OpenSans_400Regular,
+	OpenSans_500Medium,
+	OpenSans_600SemiBold,
+	OpenSans_700Bold,
+	OpenSans_800ExtraBold,
+	OpenSans_300Light_Italic,
+	OpenSans_400Regular_Italic,
+	OpenSans_500Medium_Italic,
+	OpenSans_600SemiBold_Italic,
+	OpenSans_700Bold_Italic,
+	OpenSans_800ExtraBold_Italic,
+} from '@expo-google-fonts/open-sans';
+import { AuthProvider, useAuth } from './contexts/Auth';
+import { Router } from './routes/Routes';
 
 export default () => {
 	let [fontsLoaded] = useFonts({
@@ -152,23 +58,26 @@ export default () => {
 		Montserrat_700Bold_Italic,
 		Montserrat_800ExtraBold_Italic,
 		Montserrat_900Black_Italic,
+		OpenSans_300Light,
+		OpenSans_400Regular,
+		OpenSans_500Medium,
+		OpenSans_600SemiBold,
+		OpenSans_700Bold,
+		OpenSans_800ExtraBold,
+		OpenSans_300Light_Italic,
+		OpenSans_400Regular_Italic,
+		OpenSans_500Medium_Italic,
+		OpenSans_600SemiBold_Italic,
+		OpenSans_700Bold_Italic,
+		OpenSans_800ExtraBold_Italic,
 	});
 	if (!fontsLoaded) {
 		return <></>;
 	} else {
 		return (
-			<Provider store={store}>
-				<NavigationContainer>
-					<App />
-				</NavigationContainer>
-			</Provider>
+			<AuthProvider>
+				<Router />
+			</AuthProvider>
 		);
 	}
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#e0e0e0',
-	},
-});

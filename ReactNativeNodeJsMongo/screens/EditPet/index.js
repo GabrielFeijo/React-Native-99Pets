@@ -4,6 +4,7 @@ import {
 	Alert,
 	ActivityIndicator,
 	KeyboardAvoidingView,
+	Platform,
 	Modal,
 	ScrollView,
 } from 'react-native';
@@ -195,7 +196,7 @@ const EditPet = (props) => {
 			>
 				<NineMenu />
 				<KeyboardAvoidingView
-					behavior='position'
+					behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 					style={styles.root}
 					enabled={enableshift}
 				>

@@ -4,6 +4,7 @@ import {
 	Image,
 	KeyboardAvoidingView,
 	Alert,
+	Platform,
 	ActivityIndicator,
 } from 'react-native';
 import { Titulo, Input } from '../Login/style';
@@ -117,7 +118,7 @@ const Register = (props) => {
 				</View>
 			)}
 			<KeyboardAvoidingView
-				behavior='position'
+				behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 				style={styles.root}
 				enabled={enableshift}
 			>
@@ -127,15 +128,15 @@ const Register = (props) => {
 							style={styles.image}
 							source={require('../../assets/images/register.png')}
 						/>
-						<Titulo>Faça seu Cadastro</Titulo>
 					</View>
-					<View>
+					<View style={{ backgroundColor: '#f2f2f2' }}>
+						<Titulo>Cadastro do tutor</Titulo>
 						<Input
 							value={nome}
 							onChangeText={onChangeNome}
 							placeholder='Nome Completo'
 							label='Nome Completo'
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
 
@@ -145,7 +146,7 @@ const Register = (props) => {
 							autoCapitalize='none'
 							placeholder='Email'
 							label='Email'
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
 						<Input
@@ -154,7 +155,7 @@ const Register = (props) => {
 							placeholder='Senha'
 							label='Senha'
 							secureTextEntry={true}
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
 						<Input
@@ -163,7 +164,7 @@ const Register = (props) => {
 							placeholder='Confirme a senha'
 							label='Confirme a senha'
 							secureTextEntry
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
 
@@ -171,6 +172,7 @@ const Register = (props) => {
 							onPress={() => {
 								cadastrar(props);
 							}}
+							style={{ marginTop: 50 }}
 						>
 							<ButtonText>Próximo</ButtonText>
 						</Button>

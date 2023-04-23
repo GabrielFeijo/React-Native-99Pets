@@ -6,6 +6,7 @@ import {
 	Modal,
 	Alert,
 	Image,
+	Platform,
 	ActivityIndicator,
 } from 'react-native';
 import { Input } from '../Login/style';
@@ -150,7 +151,7 @@ const RegisterPet = (props) => {
 				</View>
 			)}
 			<KeyboardAvoidingView
-				behavior='position'
+				behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 				style={styles.root}
 				enabled={enableshift}
 			>

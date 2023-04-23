@@ -1,35 +1,26 @@
-
-import {  StyleSheet } from "react-native";
-
-
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    root: {
-      flex: 1,        
-      justifyContent:"space-around",
-      alignContent:"space-between",
-      alignItems:"center",     
-    },
-    center:{
-        alignItems:"center",      
-    },
-    wrap: {
-      flex: 1,    
-      alignItems:"center",
-      paddingHorizontal:40      
-    },
-    icone:{
-      flex:1,
-      flexDirection:"row",
-      alignContent:"center",
-      alignItems:"center",
-      marginBottom:40
-    },
-    textIcone:{
-      fontSize:18,
-      fontFamily: "Montserrat_500Medium"
-    }
-   
-    
-});
+	center: {
+		alignItems: 'center',
+	},
+	wrap: {
+		flex: 1,
 
+		width: '85%',
+		justifyContent: 'center',
+		marginLeft: 'auto',
+		marginRight: 'auto',
+	},
+	icone: {
+		flex: 1,
+		flexDirection: 'row',
+		alignContent: 'center',
+		alignItems: 'center',
+		marginBottom: 40,
+	},
+	textIcone: {
+		fontSize: 18,
+		fontFamily: 'Montserrat_500Medium',
+	},
+});

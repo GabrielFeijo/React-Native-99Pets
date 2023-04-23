@@ -2,47 +2,48 @@ import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
 export const Titulo = styled.Text`
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: Montserrat_500Medium; 
-  margin-top:20px;
+	color: black;
+	font-size: 24px;
+	font-family: OpenSans_400Regular;
+	color: rgba(0, 0, 0, 0.57);
+	margin-top: 20px;
+`;
+export const Nome = styled.Text`
+	font-family: OpenSans_600SemiBold;
+	text-transform: capitalize;
 `;
 
 export const Text = styled.Text`
-  font-family: Montserrat_400Regular; 
-  font-weight: 600;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.57);
-  margin: 5px;
+	font-family: Montserrat_400Regular;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.57);
+	margin: 5px;
+	margin-bottom: 10px;
 `;
 
 export const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'space-around',
-    alignContent: 'space-between',
-    alignItems: 'center',
-  },
-  center: {
-    alignItems: 'center',
-  },
-  wrap: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  icone: {
-    flex: 1,
-    flexDirection: 'row',
-    alignContent: 'center',
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  textIcone: {
-    fontSize: 18,
-    fontFamily: 'Montserrat_500Medium',
-  },
-  texto: {
-    maxWidth: 350,
-  },
+	center: {
+		alignItems: 'center',
+	},
+	wrap: {
+		width: '85%',
+		justifyContent: 'center',
+		marginLeft: 'auto',
+		marginRight: 'auto',
+	},
+	icone: {
+		display: 'flex',
+		alignContent: 'center',
+		alignItems: 'center',
+		gap: 5,
+		flexDirection: 'row',
+		marginBottom: 40,
+	},
+	textIcone: {
+		fontSize: 16,
+		fontFamily: 'Montserrat_700Bold',
+	},
+	texto: {
+		maxWidth: 350,
+	},
 });

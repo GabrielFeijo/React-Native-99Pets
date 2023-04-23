@@ -4,17 +4,21 @@ import {
 	Image,
 	KeyboardAvoidingView,
 	Alert,
+	Platform,
 	ActivityIndicator,
 } from 'react-native';
 import { Titulo, Input, styles, Link, Password } from './style';
 import { Button, ButtonText } from '../Home/style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../../contexts/Auth';
 
 const Login = (props) => {
 	const [enableshift, setenableShift] = useState(false);
 	const [email, onChangeEmail] = useState('');
 	const [senha, onChangePass] = useState('');
 	const [loading, setLoading] = useState(false);
+
+	const auth = useAuth();
 
 	function login(props) {
 		if (email != '' && senha != '') {
@@ -42,12 +46,14 @@ const Login = (props) => {
 						let myPromise = res.json();
 						myPromise.then((infos) => {
 							storeData(infos.result);
+							console.log(infos.result);
+							auth.signIn(infos.result);
 							props.navigation.navigate('ListPets');
 						});
 					} else if (res.status == 401) {
 						let myPromise = res.json();
 						myPromise.then((infos) => {
-							Alert.alert(infos.messages);
+							Alert.alert(infos.messages[0]);
 						});
 					}
 				})
@@ -79,7 +85,7 @@ const Login = (props) => {
 				</View>
 			)}
 			<KeyboardAvoidingView
-				behavior='position'
+				behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 				style={styles.root}
 				enabled={enableshift}
 			>
@@ -89,16 +95,16 @@ const Login = (props) => {
 							style={styles.image}
 							source={require('../../assets/images/login.png')}
 						/>
-						<Titulo>Faça seu login</Titulo>
 					</View>
 					<View>
+						<Titulo>Entrar</Titulo>
 						<Input
 							value={email}
 							onChangeText={onChangeEmail}
 							autoCapitalize='none'
 							placeholder='E-mail'
 							label='E-mail'
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
 						<Input
@@ -107,25 +113,24 @@ const Login = (props) => {
 							placeholder='Senha'
 							label='Senha'
 							secureTextEntry={true}
-							placeholderTextColor='#8B8585'
+							placeholderTextColor='#000000b3'
 							onFocus={() => setenableShift(true)}
 						/>
-
-						<Button
-							onPress={() => {
-								login(props);
-							}}
-						>
-							<ButtonText>Entrar</ButtonText>
-						</Button>
 						<Password
 							onPress={() => {
 								props.navigation.navigate('Reset');
 							}}
 						>
-							Esqueceu a senha?
+							Esqueci minha senha
 						</Password>
 					</View>
+					<Button
+						onPress={() => {
+							login(props);
+						}}
+					>
+						<ButtonText>Entrar</ButtonText>
+					</Button>
 				</View>
 			</KeyboardAvoidingView>
 		</>

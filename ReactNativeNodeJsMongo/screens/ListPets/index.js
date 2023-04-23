@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
-import { Titulo, Text, styles } from './style';
+import { Titulo, Text, styles, Nome } from './style';
 import { Icon } from 'react-native-elements';
 import { NineMenu } from '../Menu';
 import { Card } from '../Card';
@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 let organizado = [];
 const PhotoPet = (props) => {
 	const [pets, setPets] = useState(false);
+	const [nome, setNome] = useState('');
 
 	const isFocused = useIsFocused();
 
@@ -20,6 +21,19 @@ const PhotoPet = (props) => {
 			if (userStorage !== null) {
 				// value previously stored
 				const userJson = JSON.parse(userStorage);
+				fetch('https://api-99-pets.vercel.app/api/user', {
+					headers: {
+						id: userJson.id,
+						token: userJson.token,
+					},
+				})
+					.then((res) => res.json())
+					.then((results) => {
+						setNome(results.nome);
+					})
+					.catch((err) => {
+						Alert.alert('Algo deu errado!');
+					});
 				fetch('https://api-99-pets.vercel.app/api/myPets', {
 					headers: {
 						id: userJson.id,
@@ -57,12 +71,13 @@ const PhotoPet = (props) => {
 					showsVerticalScrollIndicator={false}
 					showsHorizontalScrollIndicator={false}
 				>
-					<Titulo>Qual pet vamos cuidar hoje?</Titulo>
+					<Titulo>
+						Olá, <Nome>{nome}!</Nome>
+					</Titulo>
 					<Text style={styles.texto}>
-						Se deseja deletar ou atualizar seu Pet pressione o Card do pet por 2
-						segundos.
+						Se seu pet nao estiver na lista, pode adicioná-lo clicando no botão
+						abaixo
 					</Text>
-
 					{pets ? (
 						pets.map((pet) => (
 							<TouchableOpacity
@@ -90,7 +105,6 @@ const PhotoPet = (props) => {
 							url={'https://i.imgur.com/4LSmGYF.png'}
 						/>
 					)}
-
 					<TouchableOpacity
 						style={styles.icone}
 						onPress={() => {
@@ -100,6 +114,7 @@ const PhotoPet = (props) => {
 						<Icon
 							name='pluscircleo'
 							type='antdesign'
+							size={30}
 						/>
 						<Text style={styles.textIcone}>Adicionar novo pet</Text>
 					</TouchableOpacity>

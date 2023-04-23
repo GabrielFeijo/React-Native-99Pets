@@ -4,6 +4,7 @@ import {
 	Image,
 	KeyboardAvoidingView,
 	Alert,
+	Platform,
 	ActivityIndicator,
 } from 'react-native';
 import { Titulo, Input, styles, Link, Password } from './style';
@@ -73,7 +74,7 @@ const Code = (props) => {
 				</View>
 			)}
 			<KeyboardAvoidingView
-				behavior='position'
+				behavior={Platform.OS === 'ios' ? 'position' : 'height'}
 				style={styles.root}
 				enabled={enableshift}
 			>

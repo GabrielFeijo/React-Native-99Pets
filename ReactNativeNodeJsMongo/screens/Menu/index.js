@@ -6,11 +6,13 @@ import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../../contexts/Auth';
 
 export const NineMenu = (props) => {
 	const [visible, setVisible] = useState(false);
 
 	const hideMenu = () => setVisible(false);
+	const auth = useAuth();
 
 	const showMenu = () => setVisible(true);
 	const navigation = useNavigation();
@@ -101,6 +103,7 @@ export const NineMenu = (props) => {
 				onPress={async () => {
 					hideMenu();
 					await AsyncStorage.removeItem('token_user');
+					auth.signOut();
 					navigation.navigate('Login');
 				}}
 			/>
