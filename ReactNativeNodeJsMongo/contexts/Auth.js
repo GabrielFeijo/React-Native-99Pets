@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 //Create the Auth Context with the data type specified
 //and a empty object
 const AuthContext = createContext();
@@ -34,11 +33,11 @@ const AuthProvider = ({ children }) => {
 		}
 	}
 
-	const signIn = (token) => {
+	const signIn = async (token) => {
 		setAuthData(token);
 	};
 
-	const signOut = () => {
+	const signOut = async () => {
 		setAuthData(undefined);
 	};
 

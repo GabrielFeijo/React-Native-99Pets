@@ -1,22 +1,30 @@
 import { useAuth } from '../contexts/Auth';
-import Login from '../screens/Login/index';
-import Register from '../screens/Register/index';
-import ResetPassword from '../screens/Reset/index';
-import Code from '../screens/Code/index';
-import RegisterPet from '../screens/RegisterPet/index';
-import ListPets from '../screens/ListPets/index';
-import ServicePet from '../screens/ServicePet/index';
-import ListLocations from '../screens/ListLocations/index';
-import InfoLocation from '../screens/InfoLocation/index';
-import DriverLocation from '../screens/DriverLocation/index';
-import ListSquad from '../screens/ListSquad/index';
-import ListAllLocations from '../screens/ListAllLocations/index';
-import EditPet from '../screens/EditPet/index';
-import Home from '../screens/Home';
+import Login from '../screens/General/Login/index';
+import Register from '../screens/General/Register/index';
+import ResetPassword from '../screens/General/Reset/index';
+import Code from '../screens/General/Code/index';
+import RegisterPet from '../screens/User/RegisterPet/index';
+import ListPets from '../screens/User/ListPets/index';
+import ServicePet from '../screens/User/ServicePet/index';
+import ListLocations from '../screens/User/ListLocations/index';
+import InfoLocation from '../screens/User/InfoLocation/index';
+import DriverLocation from '../screens/User/DriverLocation/index';
+import ListSquad from '../screens/NavBar/ListSquad/index';
+import ListAllLocations from '../screens/NavBar/ListAllLocations/index';
+import EditPet from '../screens/User/EditPet/index';
+import Home from '../screens/General/Home';
+import Main from '../screens/Driver/Main/index';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Role from '../screens/General/Role';
+import RegisterShop from '../screens/PetShop/RegisterShop';
+import Bank from '../screens/PetShop/Bank';
+import RegisterDriver from '../screens/Driver/RegisterDriver';
+import Vehicle from '../screens/Driver/Vehicle';
+import PetMain from '../screens/PetShop/PetMain';
+import InitialPetShop from '../screens/PetShop/InitialPetShop';
 
 const Stack = createStackNavigator();
 
@@ -28,7 +36,7 @@ const myOptions = {
 	},
 };
 
-function User() {
+function General() {
 	return (
 		<View style={styles.container}>
 			<Stack.Navigator>
@@ -43,9 +51,39 @@ function User() {
 					options={{ ...myOptions, title: 'Login' }}
 				/>
 				<Stack.Screen
+					name='Role'
+					component={Role}
+					options={{ ...myOptions, title: 'Tipo de Cadastro' }}
+				/>
+				<Stack.Screen
 					name='Cadastro'
 					component={Register}
 					options={{ ...myOptions, title: 'Cadastro' }}
+				/>
+				<Stack.Screen
+					name='CadastroPetShop'
+					component={RegisterShop}
+					options={{ ...myOptions, title: 'Cadastro do PetShop' }}
+				/>
+				<Stack.Screen
+					name='CadastroDriver'
+					component={RegisterDriver}
+					options={{ ...myOptions, title: 'Cadastro do Motorista' }}
+				/>
+				<Stack.Screen
+					name='RegisterPet'
+					component={RegisterPet}
+					options={{ ...myOptions, title: 'Cadastro de Pet' }}
+				/>
+				<Stack.Screen
+					name='Bank'
+					component={Bank}
+					options={{ ...myOptions, title: 'Dados bancários' }}
+				/>
+				<Stack.Screen
+					name='Vehicle'
+					component={Vehicle}
+					options={{ ...myOptions, title: 'Dados do Veículo' }}
 				/>
 				<Stack.Screen
 					name='Reset'
@@ -58,15 +96,30 @@ function User() {
 					options={{ ...myOptions, title: 'Código de redefinição' }}
 				/>
 				<Stack.Screen
-					name='CadastroPet'
-					component={RegisterPet}
-					options={{ ...myOptions, title: 'Cadastro de Pet' }}
+					name='InitialPetShop'
+					component={InitialPetShop}
+					options={{ ...myOptions, title: 'Só o básico' }}
 				/>
+			</Stack.Navigator>
+		</View>
+	);
+}
+
+function User() {
+	return (
+		<View style={styles.container}>
+			<Stack.Navigator>
 				<Stack.Screen
 					name='ListPets'
 					component={ListPets}
 					options={{ ...myOptions, title: 'Meus Pets', headerLeft: null }}
 				/>
+				<Stack.Screen
+					name='CadastroPet'
+					component={RegisterPet}
+					options={{ ...myOptions, title: 'Cadastro de Pet' }}
+				/>
+
 				<Stack.Screen
 					name='ServicePet'
 					component={ServicePet}
@@ -107,34 +160,28 @@ function User() {
 	);
 }
 
-function Main() {
+function Driver() {
 	return (
 		<View style={styles.container}>
 			<Stack.Navigator>
 				<Stack.Screen
-					name='Home'
-					component={Home}
-					options={myOptions}
+					name='Inicial'
+					component={Main}
+					options={{ ...myOptions, title: 'Inicial Motorista' }}
 				/>
+			</Stack.Navigator>
+		</View>
+	);
+}
+
+function PetShop() {
+	return (
+		<View style={styles.container}>
+			<Stack.Navigator>
 				<Stack.Screen
-					name='Login'
-					component={Login}
-					options={{ ...myOptions, title: 'Login' }}
-				/>
-				<Stack.Screen
-					name='Cadastro'
-					component={Register}
-					options={{ ...myOptions, title: 'Cadastro' }}
-				/>
-				<Stack.Screen
-					name='Reset'
-					component={ResetPassword}
-					options={{ ...myOptions, title: 'Redefinir senha' }}
-				/>
-				<Stack.Screen
-					name='Code'
-					component={Code}
-					options={{ ...myOptions, title: 'Código de redefinição' }}
+					name='HomePetShop'
+					component={PetMain}
+					options={{ ...myOptions, title: 'Inicial PetShop' }}
 				/>
 			</Stack.Navigator>
 		</View>
@@ -150,7 +197,13 @@ export const Router = () => {
 	}
 	return (
 		<NavigationContainer>
-			{authData?.token ? <User /> : <Main />}
+			{authData?.token ? (
+				(authData.roles[0] === 'user' && <User />) ||
+				(authData.roles[0] === 'driver' && <Driver />) ||
+				(authData.roles[0] === 'petshop' && <PetShop />)
+			) : (
+				<General />
+			)}
 		</NavigationContainer>
 	);
 };

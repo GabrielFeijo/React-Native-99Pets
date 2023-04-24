@@ -1,0 +1,12 @@
+	function loadStorageData() {
+		console.log(authData.token);
+		if (authData.token) {
+			props.navigation.navigate('ListPets');
+		}
+	}
+
+	useEffect(() => {
+		//Every time the App is opened, this provider is rendered
+		//and call de loadStorage function.
+		loadStorageData();
+	}, []);
