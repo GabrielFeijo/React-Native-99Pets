@@ -4,7 +4,6 @@ import { Icon } from 'react-native-elements';
 import { View, Text, Image } from 'react-native';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../../contexts/Auth';
 

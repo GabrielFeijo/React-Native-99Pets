@@ -52,7 +52,7 @@ const Vehicle = (props) => {
 							token: userJson.token,
 						},
 					});
-					await auth.signIn(userJson);
+					props.navigation.navigate('DriverPhoto');
 				} catch (error) {
 					Alert.alert(error.response.data);
 					setLoading(false);

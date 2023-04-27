@@ -54,7 +54,7 @@ const Bank = (props) => {
 					info = {
 						userid: userJson.id,
 						url: '/api/updateShop',
-						navigation: 'InitialPetShop',
+						navigation: 'InfoPhoto',
 					};
 				}
 

@@ -25,6 +25,10 @@ import RegisterDriver from '../screens/Driver/RegisterDriver';
 import Vehicle from '../screens/Driver/Vehicle';
 import PetMain from '../screens/PetShop/PetMain';
 import InitialPetShop from '../screens/PetShop/InitialPetShop';
+import InfoPhoto from '../screens/PetShop/InfoPhoto';
+import AccountCreated from '../screens/PetShop/AccountCreated';
+import DriverPhoto from '../screens/Driver/DriverPhoto';
+import HomePetShop from '../screens/PetShop/HomePetShop';
 
 const Stack = createStackNavigator();
 
@@ -42,7 +46,7 @@ function General() {
 			<Stack.Navigator>
 				<Stack.Screen
 					name='Home'
-					component={Home}
+					component={HomePetShop}
 					options={myOptions}
 				/>
 				<Stack.Screen
@@ -96,9 +100,19 @@ function General() {
 					options={{ ...myOptions, title: 'Código de redefinição' }}
 				/>
 				<Stack.Screen
-					name='InitialPetShop'
-					component={InitialPetShop}
-					options={{ ...myOptions, title: 'Só o básico' }}
+					name='InfoPhoto'
+					component={InfoPhoto}
+					options={{ ...myOptions, title: 'Seu PetShop' }}
+				/>
+				<Stack.Screen
+					name='DriverPhoto'
+					component={DriverPhoto}
+					options={{ ...myOptions, title: 'Sua foto' }}
+				/>
+				<Stack.Screen
+					name='AccountCreated'
+					component={AccountCreated}
+					options={{ ...myOptions, title: 'Conta Criada' }}
 				/>
 			</Stack.Navigator>
 		</View>
