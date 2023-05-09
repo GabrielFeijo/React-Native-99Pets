@@ -4,12 +4,12 @@ import { StyleSheet } from 'react-native';
 export const Titulo = styled.Text`
 	color: black;
 	font-size: 24px;
-	font-family: OpenSans_400Regular;
+	font-family: Montserrat_400Regular;
 	color: rgba(0, 0, 0, 0.57);
 	margin-top: 20px;
 `;
 export const Nome = styled.Text`
-	font-family: OpenSans_600SemiBold;
+	font-family: Montserrat_600SemiBold;
 	text-transform: capitalize;
 `;
 
@@ -27,6 +27,7 @@ export const FlexBox = styled.View`
 	gap: 24px;
 	justify-content: space-between;
 	padding-bottom: 10px;
+	margin-top: 16px;
 `;
 
 export const styles = StyleSheet.create({

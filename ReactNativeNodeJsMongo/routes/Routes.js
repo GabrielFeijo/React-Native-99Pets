@@ -29,6 +29,7 @@ import InfoPhoto from '../screens/PetShop/InfoPhoto';
 import AccountCreated from '../screens/PetShop/AccountCreated';
 import DriverPhoto from '../screens/Driver/DriverPhoto';
 import HomePetShop from '../screens/PetShop/HomePetShop';
+import Pets from '../screens/PetShop/Pets';
 
 const Stack = createStackNavigator();
 
@@ -46,7 +47,7 @@ function General() {
 			<Stack.Navigator>
 				<Stack.Screen
 					name='Home'
-					component={HomePetShop}
+					component={Pets}
 					options={myOptions}
 				/>
 				<Stack.Screen

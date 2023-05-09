@@ -12,7 +12,6 @@ import { Titulo, Input } from '../../General/Login/style';
 import { Button, ButtonText } from '../../General/Home/style';
 import { styles } from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useAuth } from '../../../contexts/Auth';
 import api from '../../../axios/config';
 
 const RegisterShop = (props) => {
