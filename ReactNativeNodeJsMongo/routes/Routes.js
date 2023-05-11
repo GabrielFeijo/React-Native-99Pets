@@ -32,6 +32,7 @@ import Pets from '../screens/PetShop/Pets';
 import PetDetails from '../screens/PetShop/PetDetails';
 import ServicesPage from '../screens/PetShop/ServicesPage';
 import EditService from '../screens/PetShop/EditService';
+import StatusPet from '../screens/PetShop/StatusPet';
 
 const Stack = createStackNavigator();
 
@@ -219,6 +220,11 @@ function PetShop() {
 					name='EditService'
 					component={EditService}
 					options={{ ...myOptions, title: 'Editar Serviços' }}
+				/>
+				<Stack.Screen
+					name='StatusPet'
+					component={StatusPet}
+					options={{ ...myOptions, title: 'Status do Pet' }}
 				/>
 			</Stack.Navigator>
 		</View>

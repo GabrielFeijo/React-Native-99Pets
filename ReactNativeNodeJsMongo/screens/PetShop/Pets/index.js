@@ -28,6 +28,7 @@ const Pets = (props) => {
 							token: userJson.token,
 						},
 					});
+					console.log(response.data);
 					setAllPets(response.data.animalsInCare);
 					setPets(response.data.animalsInCare);
 				} catch (error) {

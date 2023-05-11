@@ -58,26 +58,19 @@ const PetDetails = (props) => {
 			<View style={styles.wrap}>
 				{pet && details && (
 					<View>
-						<TouchableOpacity
-							onPress={() => {
-								props.navigation.navigate('ServicePet', pet.id);
-							}}
-							key={pet.id + 'gg'}
-						>
-							<Card
-								nome={pet.nome}
-								info={pet.idade}
-								info2={pet.raca}
-								url={pet.picture}
-							/>
-						</TouchableOpacity>
+						<Card
+							nome={pet.nome}
+							info={pet.idade}
+							info2={pet.raca}
+							url={pet.picture}
+						/>
 						<Text>Os serviços selecionados foram:</Text>
 						<CalculateService services={details.services} />
 					</View>
 				)}
 				<Button
 					onPress={() => {
-						props.navigation.navigate('HomePetShop');
+						props.navigation.navigate('StatusPet', { petid: petid });
 					}}
 				>
 					<ButtonText>Atualizar status</ButtonText>

@@ -11,11 +11,13 @@ import { Button, ButtonText } from '../../General/Home/style';
 import { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
+import StatusComponent from '../components/StatusComponent';
 
 const StatusPet = (props) => {
 	const petid = props.route.params.petid;
 	const [pet, setPet] = useState([]);
 	const [details, setDetails] = useState();
+	const [disabled, setDisabled] = useState(true);
 
 	function fetchData() {
 		(async () => {
@@ -58,24 +60,23 @@ const StatusPet = (props) => {
 			<View style={styles.wrap}>
 				{pet && details && (
 					<View>
-						<TouchableOpacity
-							onPress={() => {
-								props.navigation.navigate('ServicePet', pet.id);
-							}}
-							key={pet.id + 'gg'}
-						>
-							<Card
-								nome={pet.nome}
-								info={pet.idade}
-								info2={pet.raca}
-								url={pet.picture}
+						<Card
+							nome={pet.nome}
+							info={pet.idade}
+							info2={pet.raca}
+							url={pet.picture}
+						/>
+						{details.states.map((status, index) => (
+							<StatusComponent
+								status={status}
+								key={index}
 							/>
-						</TouchableOpacity>
-						<Text>Os serviços selecionados foram:</Text>
-						<CalculateService services={details.services} />
+						))}
 					</View>
 				)}
 				<Button
+					disabled={true}
+					style={disabled && styles.teste}
 					onPress={() => {
 						props.navigation.navigate('HomePetShop');
 					}}

@@ -17,4 +17,7 @@ export const styles = StyleSheet.create({
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	},
+	teste: {
+		backgroundColor: 'rgba(217, 217, 217, 1)',
+	},
 });
