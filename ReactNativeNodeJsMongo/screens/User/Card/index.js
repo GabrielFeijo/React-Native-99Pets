@@ -63,9 +63,9 @@ export const CardEquipe = ({ nome, info, info2, url }) => {
 	);
 };
 
-export const MainCard = ({ nome, icon }) => {
+export const MainCard = ({ nome, icon, handleClick }) => {
 	return (
-		<MainBox>
+		<MainBox onPress={handleClick}>
 			{icon}
 			<Label>{nome}</Label>
 		</MainBox>

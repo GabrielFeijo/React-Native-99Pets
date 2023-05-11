@@ -51,6 +51,7 @@ const HomePetShop = (props) => {
 								nome={item.nome}
 								icon={item.icon}
 								key={item.index}
+								handleClick={() => props.navigation.navigate(item.navigate)}
 							/>
 						))}
 					</FlexBox>

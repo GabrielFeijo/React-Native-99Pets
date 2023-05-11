@@ -1,27 +1,33 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
+export const Text = styled.Text`
+	font-family: Montserrat_400Regular;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.57);
+	margin: 5px;
+	margin-bottom: 10px;
+`;
+
 export const styles = StyleSheet.create({
-	center: {
-		alignItems: 'center',
-	},
 	wrap: {
-		flex: 1,
-		alignItems: 'center',
 		width: '85%',
-		justifyContent: 'center',
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	},
 	icone: {
-		flex: 1,
-		flexDirection: 'row',
+		display: 'flex',
 		alignContent: 'center',
 		alignItems: 'center',
+		gap: 5,
+		flexDirection: 'row',
 		marginBottom: 40,
 	},
 	textIcone: {
-		fontSize: 18,
-		fontFamily: 'Montserrat_500Medium',
+		fontSize: 16,
+		fontFamily: 'Montserrat_700Bold',
+	},
+	texto: {
+		maxWidth: 350,
 	},
 });

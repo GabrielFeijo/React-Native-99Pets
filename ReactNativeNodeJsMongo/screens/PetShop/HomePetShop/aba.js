@@ -18,6 +18,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Pets',
+		navigate: 'Pets',
 	},
 	{
 		index: 1,
@@ -28,6 +29,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Serviços',
+		navigate: 'ServicesPage',
 	},
 	{
 		index: 2,

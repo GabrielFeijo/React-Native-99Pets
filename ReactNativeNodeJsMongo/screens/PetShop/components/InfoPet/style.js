@@ -5,7 +5,6 @@ export const Flex = styled.TouchableOpacity`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 16px;
 	margin: 10px 0;
 `;
 
@@ -20,3 +19,9 @@ export const Species = styled.Text`
 	font-family: Montserrat_400Regular;
 	font-size: 14px;
 `;
+
+export const styles = StyleSheet.create({
+	gap: {
+		marginLeft: 10,
+	},
+});

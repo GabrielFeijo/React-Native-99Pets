@@ -23,13 +23,15 @@ import RegisterShop from '../screens/PetShop/RegisterShop';
 import Bank from '../screens/PetShop/Bank';
 import RegisterDriver from '../screens/Driver/RegisterDriver';
 import Vehicle from '../screens/Driver/Vehicle';
-import PetMain from '../screens/PetShop/PetMain';
 import InitialPetShop from '../screens/PetShop/InitialPetShop';
 import InfoPhoto from '../screens/PetShop/InfoPhoto';
 import AccountCreated from '../screens/PetShop/AccountCreated';
 import DriverPhoto from '../screens/Driver/DriverPhoto';
 import HomePetShop from '../screens/PetShop/HomePetShop';
 import Pets from '../screens/PetShop/Pets';
+import PetDetails from '../screens/PetShop/PetDetails';
+import ServicesPage from '../screens/PetShop/ServicesPage';
+import EditService from '../screens/PetShop/EditService';
 
 const Stack = createStackNavigator();
 
@@ -47,7 +49,7 @@ function General() {
 			<Stack.Navigator>
 				<Stack.Screen
 					name='Home'
-					component={Pets}
+					component={Home}
 					options={myOptions}
 				/>
 				<Stack.Screen
@@ -195,8 +197,28 @@ function PetShop() {
 			<Stack.Navigator>
 				<Stack.Screen
 					name='HomePetShop'
-					component={PetMain}
-					options={{ ...myOptions, title: 'Inicial PetShop' }}
+					component={HomePetShop}
+					options={{ ...myOptions, title: 'PetShop' }}
+				/>
+				<Stack.Screen
+					name='Pets'
+					component={Pets}
+					options={{ ...myOptions, title: 'Pets em atendimento' }}
+				/>
+				<Stack.Screen
+					name='PetDetails'
+					component={PetDetails}
+					options={{ ...myOptions, title: 'Detalhes do Pet' }}
+				/>
+				<Stack.Screen
+					name='ServicesPage'
+					component={ServicesPage}
+					options={{ ...myOptions, title: 'Serviços' }}
+				/>
+				<Stack.Screen
+					name='EditService'
+					component={EditService}
+					options={{ ...myOptions, title: 'Editar Serviços' }}
 				/>
 			</Stack.Navigator>
 		</View>
