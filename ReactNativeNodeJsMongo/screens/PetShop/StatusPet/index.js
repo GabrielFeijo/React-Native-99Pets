@@ -33,7 +33,7 @@ const StatusPet = (props) => {
 							token: userJson.token,
 						},
 					});
-					setDetails(response.data);
+					setDetails(response.data.states);
 
 					const response2 = await api.get(`/api/onePet?id=${petid}`, {
 						headers: {
@@ -54,6 +54,20 @@ const StatusPet = (props) => {
 		fetchData();
 	}, []);
 
+	const handleChange = (status) => {
+		const myList = [...details];
+		const update = myList.find((detail) => detail.name === status.name);
+		if (!update.value) {
+			update.value = true;
+			update.updated_at = new Date();
+
+			if (status.name === 'Pet está pronto para ir para casa') {
+				setDisabled(false);
+			}
+			setDetails(myList);
+		}
+	};
+
 	return (
 		<>
 			<NineMenu />
@@ -66,19 +80,20 @@ const StatusPet = (props) => {
 							info2={pet.raca}
 							url={pet.picture}
 						/>
-						{details.states.map((status, index) => (
+						{details.map((status, index) => (
 							<StatusComponent
 								status={status}
+								handleChange={handleChange}
 								key={index}
 							/>
 						))}
 					</View>
 				)}
 				<Button
-					disabled={true}
-					style={disabled && styles.teste}
+					disabled={disabled}
+					style={disabled && styles.btn_disabled}
 					onPress={() => {
-						props.navigation.navigate('HomePetShop');
+						props.navigation.navigate('LookingDriver');
 					}}
 				>
 					<ButtonText>Solicitar busca do pet</ButtonText>

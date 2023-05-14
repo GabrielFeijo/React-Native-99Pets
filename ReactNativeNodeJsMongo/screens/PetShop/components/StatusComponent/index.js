@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { DateText, Flex, Text } from './style';
-import { Checkbox } from 'react-native-paper';
 import { format } from 'date-fns';
+import Checkbox from 'expo-checkbox';
 
-const StatusComponent = ({ status }) => {
+const StatusComponent = ({ status, handleChange }) => {
 	return (
 		<Flex>
 			<View>
@@ -16,8 +16,10 @@ const StatusComponent = ({ status }) => {
 				</DateText>
 			</View>
 			<Checkbox
-				status={status.value ? 'checked' : 'unchecked'}
+				value={status.value}
+				onValueChange={() => handleChange(status)}
 				color={'black'}
+				style={{ borderRadius: 20 }}
 			/>
 		</Flex>
 	);

@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { Titulo, Text } from '../../User/ListPets/style';
 import { styles } from './style';
 import { NineMenu } from '../Menu';
-import { CardEquipe } from '../../User/Card';
+import { TeamCard } from '../../User/Card';
 import Squad from '../Squad';
 
 const ListSquad = (props) => {
@@ -22,7 +22,7 @@ const ListSquad = (props) => {
 					</Text>
 
 					{Squad.map((person, index) => (
-						<CardEquipe
+						<TeamCard
 							key={index}
 							url={person.url}
 							nome={person.nome}

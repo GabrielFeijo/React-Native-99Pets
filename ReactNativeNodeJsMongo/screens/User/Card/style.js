@@ -22,6 +22,13 @@ export const TextInfo = styled.Text`
 	margin-top: 5px;
 `;
 
+export const Plate = styled.Text`
+	font-family: Montserrat_600SemiBold;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.57);
+	margin-top: 5px;
+`;
+
 export const Label = styled.Text`
 	font-family: OpenSans_600SemiBold;
 	font-size: 20px;
@@ -54,6 +61,7 @@ export const MainBox = styled.TouchableOpacity`
 	justify-content: space-evenly;
 	background: #ffffff;
 	box-shadow: 0px 4px 2px rgba(12, 12, 12, 0.12);
+	margin-bottom: 24px;
 `;
 
 export const styles = StyleSheet.create({

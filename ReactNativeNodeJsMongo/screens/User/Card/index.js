@@ -9,6 +9,7 @@ import {
 	styles,
 	MainBox,
 	Label,
+	Plate,
 } from './style';
 
 export const Card = ({ id, nome, info, info2, url }) => {
@@ -50,7 +51,34 @@ export const Card2 = ({ id, url, nome, info, quantidade }) => {
 	);
 };
 
-export const CardEquipe = ({ nome, info, info2, url }) => {
+export const DriverCard = ({ id, url, nome, info, quantidade }) => {
+	let stars = [];
+	for (let i = 0; i < quantidade; i++) {
+		stars.push(
+			<Icon
+				name='star'
+				type='FontAwesome'
+				size={22}
+				color='#ffc107'
+				key={'gg' + i}
+			/>
+		);
+	}
+
+	return (
+		<TouchableOpacity style={styles.wrap}>
+			<Image source={url} />
+			<Description>
+				<Text>{nome}</Text>
+				<Plate>Placa {info}</Plate>
+				<TextInfo>Motorista</TextInfo>
+				<TextInfo>{stars}</TextInfo>
+			</Description>
+		</TouchableOpacity>
+	);
+};
+
+export const TeamCard = ({ nome, info, info2, url }) => {
 	return (
 		<TouchableOpacity style={styles.wrap}>
 			<Image source={url} />

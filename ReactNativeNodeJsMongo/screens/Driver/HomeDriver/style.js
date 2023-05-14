@@ -12,6 +12,10 @@ export const Nome = styled.Text`
 	font-family: Montserrat_600SemiBold;
 	text-transform: capitalize;
 `;
+export const Status = styled.Text`
+	font-family: Montserrat_600SemiBold;
+	font-size: 17px;
+`;
 
 export const Text = styled.Text`
 	font-family: Montserrat_400Regular;
@@ -30,10 +34,22 @@ export const FlexBox = styled.View`
 	margin-top: 16px;
 `;
 
+export const Flex = styled.View`
+	flex: 1;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 10px;
+`;
+
 export const styles = StyleSheet.create({
 	wrap: {
 		width: '80%',
 		marginLeft: 'auto',
 		marginRight: 'auto',
+	},
+	map: {
+		height: 350,
+		borderRadius: 16,
 	},
 });

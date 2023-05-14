@@ -13,7 +13,6 @@ import ListSquad from '../screens/NavBar/ListSquad/index';
 import ListAllLocations from '../screens/NavBar/ListAllLocations/index';
 import EditPet from '../screens/User/EditPet/index';
 import Home from '../screens/General/Home';
-import Main from '../screens/Driver/Main/index';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
@@ -33,6 +32,12 @@ import PetDetails from '../screens/PetShop/PetDetails';
 import ServicesPage from '../screens/PetShop/ServicesPage';
 import EditService from '../screens/PetShop/EditService';
 import StatusPet from '../screens/PetShop/StatusPet';
+import LookingDriver from '../screens/PetShop/LookingDriver';
+import DriverLocation2 from '../screens/PetShop/DriverLocation2';
+import HomeDriver from '../screens/Driver/HomeDriver/index';
+import CatchPet from '../screens/Driver/CatchPet';
+import DeliverPet from '../screens/Driver/DeliverPet';
+import FinishRoute from '../screens/Driver/FinishRoute';
 
 const Stack = createStackNavigator();
 
@@ -183,9 +188,24 @@ function Driver() {
 		<View style={styles.container}>
 			<Stack.Navigator>
 				<Stack.Screen
-					name='Inicial'
-					component={Main}
-					options={{ ...myOptions, title: 'Inicial Motorista' }}
+					name='HomeDriver'
+					component={HomeDriver}
+					options={{ ...myOptions, title: 'Motorista' }}
+				/>
+				<Stack.Screen
+					name='CatchPet'
+					component={CatchPet}
+					options={{ ...myOptions, title: 'Buscar pet' }}
+				/>
+				<Stack.Screen
+					name='DeliverPet'
+					component={DeliverPet}
+					options={{ ...myOptions, title: 'Deixar pet' }}
+				/>
+				<Stack.Screen
+					name='FinishRoute'
+					component={FinishRoute}
+					options={{ ...myOptions, title: 'Finalizado' }}
 				/>
 			</Stack.Navigator>
 		</View>
@@ -225,6 +245,16 @@ function PetShop() {
 					name='StatusPet'
 					component={StatusPet}
 					options={{ ...myOptions, title: 'Status do Pet' }}
+				/>
+				<Stack.Screen
+					name='LookingDriver'
+					component={LookingDriver}
+					options={{ ...myOptions, title: 'Procurando motorista...' }}
+				/>
+				<Stack.Screen
+					name='DriverLocation2'
+					component={DriverLocation2}
+					options={{ ...myOptions, title: 'Motorista a caminho' }}
 				/>
 			</Stack.Navigator>
 		</View>

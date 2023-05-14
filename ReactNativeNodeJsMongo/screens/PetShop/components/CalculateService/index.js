@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native-web';
 import { Flex, Price, ServiceText, Text } from './style';
 import { useState } from 'react';
 import { useEffect } from 'react';

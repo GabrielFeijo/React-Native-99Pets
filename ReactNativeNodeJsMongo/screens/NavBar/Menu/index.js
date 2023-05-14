@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { Icon } from 'react-native-elements';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../../contexts/Auth';
+import { HambergerMenu, Logout } from 'iconsax-react-native';
 
 export const NineMenu = (props) => {
 	const [visible, setVisible] = useState(false);
@@ -20,14 +21,12 @@ export const NineMenu = (props) => {
 			<Menu
 				visible={visible}
 				anchor={
-					<Text onPress={showMenu}>
-						{' '}
-						<Icon
-							name='menu'
-							type='feather'
-							size={30}
+					<TouchableOpacity onPress={showMenu}>
+						<HambergerMenu
+							size='30'
+							color='#000'
 						/>
-					</Text>
+					</TouchableOpacity>
 				}
 				onRequestClose={hideMenu}
 				style={styles.boxMenu}
@@ -90,21 +89,19 @@ export const NineMenu = (props) => {
 					</View>
 				</MenuItem>
 			</Menu>
-			<Image
-				style={styles.image}
-				source={require('../../../assets/images/mini.png')}
-			/>
-
-			<Icon
-				name='logout'
-				type='simplelineicons'
-				size={30}
+			<View></View>
+			<TouchableOpacity
 				onPress={async () => {
 					hideMenu();
 					await AsyncStorage.removeItem('token_user');
 					auth.signOut();
 				}}
-			/>
+			>
+				<Logout
+					size='30'
+					color='#000'
+				/>
+			</TouchableOpacity>
 		</View>
 	);
 };

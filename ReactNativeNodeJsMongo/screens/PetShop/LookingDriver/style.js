@@ -1,23 +1,27 @@
 import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
-export const Text = styled.Text`
-	font-family: Montserrat_400Regular;
-	font-size: 16px;
+export const Titulo = styled.Text`
+	font-size: 24px;
+	font-family: Montserrat_600SemiBold;
 	color: rgba(0, 0, 0, 0.57);
-	margin: 5px;
-	margin-bottom: 10px;
+	margin-top: 20px;
 `;
-
+export const Text = styled.Text`
+	font-family: Montserrat_500Medium;
+	color: rgba(0, 0, 0, 0.57);
+	margin: 20px 0;
+`;
 export const styles = StyleSheet.create({
-	wrap: {
+	root: {
 		width: '85%',
 		flex: 1,
-		justifyContent: 'space-between',
+		justifyContent: 'flex-start',
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	},
-	btn_disabled: {
-		backgroundColor: 'rgba(217, 217, 217, 1)',
+	map: {
+		height: 430,
+		borderRadius: 16,
 	},
 });
