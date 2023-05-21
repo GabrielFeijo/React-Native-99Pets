@@ -18,6 +18,7 @@ import { Button } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../../contexts/Auth';
 import api from '../../../axios/config';
+import axios from 'axios';
 
 const RegisterPet = (props) => {
 	const [enableshift, setenableShift] = useState(false);
@@ -99,49 +100,72 @@ const RegisterPet = (props) => {
 			Alert.alert('você precisa de permissão para isso');
 		}
 	};
+	// const pickFromCamera = async () => {
+	// 	const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+	// 	if (granted) {
+	// 		let data = await ImagePicker.launchCameraAsync({
+	// 			mediaTypes: ImagePicker.MediaTypeOptions.Images,
+	// 			allowsEditing: true,
+	// 			aspect: [1, 1],
+	// 			quality: 0.5,
+	// 		});
+	// 		if (!data.cancelled) {
+	// 			let newfile = {
+	// 				uri: data.uri,
+	// 				type: `test/${data.uri.split('.')[1]}`,
+	// 				name: `test.${data.uri.split('.')[1]}`,
+	// 			};
+	// 			handleUpload(newfile);
+	// 			setLoading(true);
+	// 		}
+	// 	} else {
+	// 		Alert.alert('você precisa de permissão para isso');
+	// 	}
+	// };
+
 	const pickFromCamera = async () => {
-		const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-		if (granted) {
-			let data = await ImagePicker.launchCameraAsync({
+		const { status } = await ImagePicker.requestCameraPermissionsAsync();
+		if (status === 'granted') {
+			let result = await ImagePicker.launchCameraAsync({
 				mediaTypes: ImagePicker.MediaTypeOptions.Images,
 				allowsEditing: true,
 				aspect: [1, 1],
 				quality: 0.5,
 			});
-			if (!data.cancelled) {
+			if (!result.canceled) {
 				let newfile = {
-					uri: data.uri,
-					type: `test/${data.uri.split('.')[1]}`,
-					name: `test.${data.uri.split('.')[1]}`,
+					uri: result.assets[0].uri,
+					type: `test/${result.assets[0].uri.split('.').pop()}`,
+					name: `test.${result.assets[0].uri.split('.').pop()}`,
 				};
 				handleUpload(newfile);
 				setLoading(true);
 			}
 		} else {
-			Alert.alert('você precisa de permissão para isso');
+			Alert.alert('Você precisa de permissão para isso');
 		}
 	};
 
-	const handleUpload = (image) => {
+	const handleUpload = async (image) => {
 		const data = new FormData();
 		data.append('file', image);
 		data.append('upload_preset', 'ml_default');
 		data.append('cloud_name', 'doyx0y9ek');
 
-		fetch('https://api.cloudinary.com/v1_1/doyx0y9ek/image/upload', {
-			method: 'post',
-			body: data,
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				setPicture(data.url);
-				setModal(false);
-				setLoading(false);
-			})
-			.catch((err) => {
-				setLoading(false);
-				Alert.alert('erro durante o upload');
-			});
+		try {
+			const response = await axios.post(
+				`https://api.cloudinary.com/v1_1/doyx0y9ek/image/upload`,
+				data,
+				{ headers: { 'Content-Type': 'multipart/form-data' } }
+			);
+
+			setPicture(response.data.url);
+			setModal(false);
+			setLoading(false);
+		} catch (error) {
+			setLoading(false);
+			Alert.alert('Erro durante o upload');
+		}
 	};
 
 	return (

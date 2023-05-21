@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { styles } from './style';
 import { Titulo, Text } from '../../User/ListPets/style';
 import { NineMenu } from '../Menu';
-import { Card2 } from '../../User/Card';
+import { Card2 } from '../../General/Card';
 import PetShops from '../../PetShops/main';
 
 const AllLocations = (props) => {

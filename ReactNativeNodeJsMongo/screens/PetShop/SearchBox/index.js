@@ -3,12 +3,12 @@ import { Box, styles } from './style';
 import { TextInput } from 'react-native';
 import { SearchNormal1 } from 'iconsax-react-native';
 
-const SearchBox = ({ handleChange, value }) => {
+const SearchBox = ({ placeholder, handleChange, value }) => {
 	return (
 		<>
 			<Box>
 				<TextInput
-					placeholder='Buscar Pet'
+					placeholder={placeholder}
 					placeholderTextColor={'rgba(0, 0, 0, 0.57)'}
 					style={styles.input}
 					value={value}

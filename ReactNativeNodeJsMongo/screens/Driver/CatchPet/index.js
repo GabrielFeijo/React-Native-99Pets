@@ -4,7 +4,7 @@ import { Text, Titulo, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { Card } from '../../User/Card';
+import { Card } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 
 const CatchPet = (props) => {

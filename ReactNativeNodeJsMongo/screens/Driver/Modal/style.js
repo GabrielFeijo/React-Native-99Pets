@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
+import { Platform,StyleSheet } from 'react-native';
 
 export const Box = styled.View`
 	background-color: white;

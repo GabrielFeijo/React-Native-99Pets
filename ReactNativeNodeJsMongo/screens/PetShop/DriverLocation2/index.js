@@ -4,7 +4,7 @@ import { Text, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import {  DriverCard } from '../../User/Card';
+import { DriverCard } from '../../General/Card';
 
 const DriverLocation2 = (props) => {
 	const [region, setRegion] = useState(null);

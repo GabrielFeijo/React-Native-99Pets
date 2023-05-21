@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { MainButton, ButtonDelete, Text, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
-import { Card } from '../Card';
+import { Card } from '../../General/Card';
 import { ButtonText } from '../../General/Home/style';
 import { Input } from '../../General/Login/style';
 import { Icon } from 'react-native-elements';

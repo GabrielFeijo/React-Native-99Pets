@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Platform, View, Alert, StyleSheet } from 'react-native';
 import { Service, ServiceText, Services, Text, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
-import { Card } from '../Card';
+import { Card } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 import RNPickerSelect from 'react-native-picker-select';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Icon } from 'react-native-elements';
+import api from '../../../axios/config';
 
 const pickerSelectStyles = StyleSheet.create({
 	inputIOS: {
@@ -51,20 +52,17 @@ const ServicePet = (props) => {
 		if (userStorage != null) {
 			const userJson = JSON.parse(userStorage);
 
-			fetch('https://api-99-pets.vercel.app/api/onePet?id=' + id, {
-				headers: {
-					id: userJson.id,
-					token: userJson.token,
-				},
-			})
-				.then((res) => res.json())
-				.then((results) => {
-					console.log(results.nome);
-					setPet(results);
-				})
-				.catch((err) => {
-					Alert.alert('Algo deu errado!');
+			try {
+				const response = await api.get(`/api/onePet?id=${id}`, {
+					headers: {
+						id: userJson.id,
+						token: userJson.token,
+					},
 				});
+				setPet(response.data);
+			} catch (error) {
+				Alert.alert('Algo deu errado!');
+			}
 		} else {
 			props.navigation.navigate('Login');
 		}

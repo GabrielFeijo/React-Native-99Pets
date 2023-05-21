@@ -4,7 +4,7 @@ import { Titulo, Text, styles, Nome, FlexBox } from './style';
 import { NineMenu } from '../../NavBar/Menu';
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { MainCard } from '../../User/Card';
+import { MainCard } from '../../General/Card';
 import { lista } from './aba';
 
 const HomePetShop = (props) => {

@@ -5,7 +5,7 @@ import { View } from 'react-native';
 
 import { Text, styles } from './style';
 import { useState } from 'react';
-import { Card } from '../../User/Card';
+import { Card } from '../../General/Card';
 import CalculateService from '../components/CalculateService';
 import { Button, ButtonText } from '../../General/Home/style';
 import { useEffect } from 'react';

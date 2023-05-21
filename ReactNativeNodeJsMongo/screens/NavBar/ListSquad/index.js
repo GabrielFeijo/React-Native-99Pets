@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { Titulo, Text } from '../../User/ListPets/style';
 import { styles } from './style';
 import { NineMenu } from '../Menu';
-import { TeamCard } from '../../User/Card';
+import { TeamCard } from '../../General/Card';
 import Squad from '../Squad';
 
 const ListSquad = (props) => {

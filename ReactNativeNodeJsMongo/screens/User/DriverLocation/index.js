@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
-import { Card2 } from '../Card';
+import { Card2 } from '../../General/Card';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 

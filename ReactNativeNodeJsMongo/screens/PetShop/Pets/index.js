@@ -66,6 +66,7 @@ const Pets = (props) => {
 						</Text>
 					</View>
 					<SearchBox
+						placeholder={'Buscar Pet'}
 						handleChange={onChange}
 						value={filter}
 					/>

@@ -38,6 +38,8 @@ import HomeDriver from '../screens/Driver/HomeDriver/index';
 import CatchPet from '../screens/Driver/CatchPet';
 import DeliverPet from '../screens/Driver/DeliverPet';
 import FinishRoute from '../screens/Driver/FinishRoute';
+import MarketPlace from '../screens/User/MarketPlace';
+import StoreCategory from '../screens/User/StoreCategory';
 
 const Stack = createStackNavigator();
 
@@ -177,6 +179,16 @@ function User() {
 					name='ListAllLocations'
 					component={ListAllLocations}
 					options={{ ...myOptions, title: 'Todos os Pet Shops' }}
+				/>
+				<Stack.Screen
+					name='MarketPlace'
+					component={MarketPlace}
+					options={{ ...myOptions, title: 'MakertPlace' }}
+				/>
+				<Stack.Screen
+					name='StoreCategory'
+					component={StoreCategory}
+					options={{ ...myOptions, title: 'MakertPlace', headerLeft: null }}
 				/>
 			</Stack.Navigator>
 		</View>

@@ -12,7 +12,7 @@ import {
 import { Titulo } from '../ListPets/style';
 import { NineMenu } from '../../NavBar/Menu';
 import { Icon } from 'react-native-elements';
-import { Card2 } from '../Card';
+import { Card2 } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Service, ServiceText } from '../ServicePet/style';
 

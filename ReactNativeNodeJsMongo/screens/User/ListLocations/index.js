@@ -4,7 +4,7 @@ import { styles } from './style';
 import { Titulo, Text } from '../ListPets/style';
 import { Icon } from 'react-native-elements';
 import { NineMenu } from '../../NavBar/Menu';
-import { Card2 } from '../Card';
+import { Card2 } from '../../General/Card';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import PetShops from '../../PetShops/main';
 

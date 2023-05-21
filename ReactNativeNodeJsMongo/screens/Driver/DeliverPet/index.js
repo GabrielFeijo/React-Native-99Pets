@@ -4,7 +4,7 @@ import { Text, Titulo, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { Card, Card2 } from '../../User/Card';
+import { Card, Card2 } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 
 const DeliverPet = (props) => {

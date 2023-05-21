@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import {
 	Text,
@@ -10,7 +10,20 @@ import {
 	MainBox,
 	Label,
 	Plate,
+	StoreBox,
+	StoreImage,
+	Category,
+	ItemBox,
+	ItemPicture,
+	Weight,
+	ProductName,
+	Price,
+	InfoMarket,
+	Title,
+	MarketImage,
+	MarketBox,
 } from './style';
+import market from '../../../assets/market.png';
 
 export const Card = ({ id, nome, info, info2, url }) => {
 	return (
@@ -97,5 +110,43 @@ export const MainCard = ({ nome, icon, handleClick }) => {
 			{icon}
 			<Label>{nome}</Label>
 		</MainBox>
+	);
+};
+
+export const MarketCard = ({ handleClick }) => {
+	return (
+		<MarketBox onPress={handleClick}>
+			<View>
+				<Title>Loja da 99Pets</Title>
+				<InfoMarket>O que seu pet precisa, sem sair de casa!</InfoMarket>
+			</View>
+			<MarketImage source={market} />
+		</MarketBox>
+	);
+};
+
+export const StoreCard = ({ category, image, handleClick }) => {
+	return (
+		<StoreBox onPress={handleClick}>
+			<Category>{category}</Category>
+			<StoreImage source={image} />
+		</StoreBox>
+	);
+};
+
+export const ItemCard = ({ product, handleClick }) => {
+	return (
+		<ItemBox onPress={handleClick}>
+			<ItemPicture
+				source={{
+					uri: product.image,
+				}}
+			/>
+			<View style={{ width: '80%' }}>
+				{product.weight && <Weight>{product.weight}KG</Weight>}
+				<ProductName>{product.name}</ProductName>
+				<Price>R$ {product.price.toFixed(2).replace('.', ',')}</Price>
+			</View>
+		</ItemBox>
 	);
 };

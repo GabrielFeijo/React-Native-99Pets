@@ -17,7 +17,7 @@ const Code = (props) => {
 	const [rPass, onChangeRPass] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	function verifyCode(props) {
+	async function verifyCode(props) {
 		if (code != '' && pass != '' && rPass != '') {
 			if (pass != rPass) {
 				Alert.alert('As senhas digitadas não coincidem!');
@@ -28,6 +28,7 @@ const Code = (props) => {
 			onChangePass('');
 			onChangeCode('');
 			setLoading(true);
+
 			fetch('https://api-99-pets.vercel.app/api/verify-code', {
 				method: 'post',
 				headers: {

@@ -11,6 +11,7 @@ import { Titulo, Input, styles, Password } from './style';
 import { Button, ButtonText } from '../Home/style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../../contexts/Auth';
+import api from '../../../axios/config';
 
 const Login = (props) => {
 	const [enableshift, setenableShift] = useState(false);
@@ -21,46 +22,27 @@ const Login = (props) => {
 	const { authData } = useAuth();
 	const auth = useAuth();
 
-	function login(props) {
+	async function login(props) {
 		if (email != '' && senha != '') {
 			onChangeEmail('');
 			onChangePass('');
 			setLoading(true);
-			fetch('https://api-99-pets.vercel.app/api/auth', {
-				method: 'post',
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					email: email.toLowerCase(),
-					senha: senha,
-				}),
-			})
-				.then((res) => {
-					return res;
-				})
 
-				.then((res) => {
-					setLoading(false);
-					if (res.ok) {
-						let myPromise = res.json();
-						myPromise.then(async (infos) => {
-							const token = infos.result;
-							await storeData(token);
-							await auth.signIn(token);
-						});
-					} else if (res.status == 401) {
-						let myPromise = res.json();
-						myPromise.then((infos) => {
-							Alert.alert(infos.messages[0]);
-						});
-					}
-				})
-				.catch((err) => {
-					setLoading(false);
-					Alert.alert('Algo deu errado');
-				});
+			const post = JSON.stringify({
+				email: email.toLowerCase(),
+				senha: senha,
+			});
+
+			try {
+				const login = await api.post(`/api/auth`, post);
+				const token = login.data.result;
+				await storeData(token);
+				await auth.signIn(token);
+				setLoading(false);
+			} catch (error) {
+				Alert.alert(error.response.data.messages[0]);
+				setLoading(false);
+			}
 		} else {
 			Alert.alert('Preencha todas as informações');
 		}
