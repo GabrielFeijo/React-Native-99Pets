@@ -5,20 +5,20 @@ export const Titulo = styled.Text`
 	font-size: 24px;
 	font-family: Montserrat_600SemiBold;
 	color: rgba(0, 0, 0, 0.57);
-	margin-bottom: 20px;
+	margin-top: 20px;
+`;
+
+export const Text = styled.Text`
+	font-family: Montserrat_400Regular;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.57);
+	margin: 15px 0;
 `;
 
 export const styles = StyleSheet.create({
 	wrap: {
-		flex: 1,
 		width: '85%',
-		justifyContent: 'center',
 		marginLeft: 'auto',
 		marginRight: 'auto',
-	},
-	itens: {
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		justifyContent: 'space-between',
 	},
 });

@@ -40,6 +40,10 @@ import DeliverPet from '../screens/Driver/DeliverPet';
 import FinishRoute from '../screens/Driver/FinishRoute';
 import MarketPlace from '../screens/User/MarketPlace';
 import StoreCategory from '../screens/User/StoreCategory';
+import RouteHistory from '../screens/Driver/RouteHistory';
+import RouteDetails from '../screens/Driver/RouteDetails';
+import Wallet from '../screens/Driver/Wallet';
+import TransferMoney from '../screens/Driver/TransferMoney';
 
 const Stack = createStackNavigator();
 
@@ -218,6 +222,26 @@ function Driver() {
 					name='FinishRoute'
 					component={FinishRoute}
 					options={{ ...myOptions, title: 'Finalizado' }}
+				/>
+				<Stack.Screen
+					name='RouteHistory'
+					component={RouteHistory}
+					options={{ ...myOptions, title: 'Histórico' }}
+				/>
+				<Stack.Screen
+					name='RouteDetails'
+					component={RouteDetails}
+					options={{ ...myOptions, title: 'Detalhes da Rota' }}
+				/>
+				<Stack.Screen
+					name='Wallet'
+					component={Wallet}
+					options={{ ...myOptions, title: 'Carteira' }}
+				/>
+				<Stack.Screen
+					name='TransferMoney'
+					component={TransferMoney}
+					options={{ ...myOptions, title: 'Transferir' }}
 				/>
 			</Stack.Navigator>
 		</View>

@@ -2,19 +2,10 @@ import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
 export const Titulo = styled.Text`
-	color: black;
 	font-size: 24px;
-	font-family: Montserrat_400Regular;
+	font-family: Montserrat_600SemiBold;
 	color: rgba(0, 0, 0, 0.57);
 	margin-top: 20px;
-`;
-export const Nome = styled.Text`
-	font-family: Montserrat_600SemiBold;
-	text-transform: capitalize;
-`;
-export const Status = styled.Text`
-	font-family: Montserrat_600SemiBold;
-	font-size: 17px;
 `;
 
 export const Text = styled.Text`
@@ -24,32 +15,27 @@ export const Text = styled.Text`
 	margin: 10px 0;
 `;
 
-export const FlexBox = styled.View`
-	flex: 1;
+export const HistoryText = styled.Text`
+	font-family: Montserrat_600SemiBold;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.57);
+	margin-bottom: 20px;
+`;
+
+export const Flex = styled.View`
+	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	// gap: 24px;
 	justify-content: space-between;
-	padding-bottom: 10px;
 	margin-top: 16px;
-`;
-
-export const Flex = styled.View`
-	flex: 1;
-	flex-wrap: wrap;
-	flex-direction: row;
-	align-items: center;
-	margin-bottom: 10px;
 `;
 
 export const styles = StyleSheet.create({
 	wrap: {
+		flex: 1,
 		width: '85%',
 		marginLeft: 'auto',
 		marginRight: 'auto',
-	},
-	map: {
-		height: 350,
-		borderRadius: 16,
 	},
 });

@@ -34,6 +34,12 @@ export const Label = styled.Text`
 	font-size: 20px;
 	color: rgba(251, 175, 94, 1);
 `;
+
+export const WalletText = styled.Text`
+	font-family: OpenSans_600SemiBold;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.57);
+`;
 export const Image = styled.Image`
 	width: 164px;
 	height: 200px;
@@ -50,7 +56,7 @@ export const Description = styled.View`
 	justify-content: center;
 `;
 export const MainBox = styled.TouchableOpacity`
-	width: 150px;
+	width: 170px;
 	height: 150px;
 	border-radius: 16px;
 
@@ -60,7 +66,11 @@ export const MainBox = styled.TouchableOpacity`
 	align-content: center;
 	justify-content: space-evenly;
 	background: #ffffff;
-	box-shadow: 0px 4px 2px rgba(12, 12, 12, 0.12);
+
+	${Platform.OS === 'android'
+		? `elevation: 3;`
+		: `box-shadow: 0px 4px 2px rgba(12, 12, 12, 0.12);`}
+
 	margin-bottom: 24px;
 `;
 
@@ -168,6 +178,41 @@ export const ProductName = styled.Text`
 export const Price = styled.Text`
 	font-family: Montserrat_700Bold;
 	color: rgba(0, 0, 0, 0.57);
+`;
+
+export const RouteBox = styled.TouchableOpacity`
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+	margin-bottom: 24px;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	border-bottom-width: 1px;
+	padding-bottom: 20px;
+`;
+
+export const RouteTitle = styled.Text`
+	font-family: Montserrat_700Bold;
+	color: rgba(0, 0, 0, 0.57);
+	font-size: 16px;
+`;
+
+export const RouteAddress = styled.Text`
+	font-family: Montserrat_700Bold;
+	color: rgba(0, 0, 0, 0.57);
+	margin: 8px 0;
+`;
+export const RouteStatus = styled.Text`
+	font-family: Montserrat_700Bold;
+	color: #fbaf5e;
+	margin: 8px 0;
+`;
+export const AnimalText = styled.Text`
+	font-family: Montserrat_400Regular;
+	color: rgba(0, 0, 0, 0.57);
+	font-size: 12px;
 `;
 
 export const styles = StyleSheet.create({

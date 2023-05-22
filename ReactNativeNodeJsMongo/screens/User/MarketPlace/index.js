@@ -12,14 +12,23 @@ import toy from '../../../assets/images/toy.png';
 import pharmacy from '../../../assets/images/pharmacy.png';
 import accessory from '../../../assets/images/accessory.png';
 
+const data = [
+	{ name: 'Alimentos', type: 'food', image: food },
+	{ name: 'Brinquedos', type: 'toy', image: toy },
+	{ name: 'Farmácia', type: 'pharmacy', image: pharmacy },
+	{ name: 'Acessórios', type: 'accessory', image: accessory },
+];
+
 const MarketPlace = (props) => {
 	const [search, setSearch] = useState('');
+	const [categories, setCategories] = useState(data);
 
 	const onChange = (e) => {
-		// setPets(
-		// 	allPets.filter((pet) => pet.name.toLowerCase().includes(e.toLowerCase()))
-		// );
-
+		setCategories(
+			data.filter((category) =>
+				category.name.toLowerCase().includes(e.toLowerCase())
+			)
+		);
 		setSearch(e);
 	};
 
@@ -42,26 +51,14 @@ const MarketPlace = (props) => {
 					showsHorizontalScrollIndicator={false}
 					style={{ marginTop: 20 }}
 				>
-					<StoreCard
-						category={'Alimentos'}
-						handleClick={() => handleClick('food')}
-						image={food}
-					/>
-					<StoreCard
-						category={'Brinquedos'}
-						handleClick={() => handleClick('toy')}
-						image={toy}
-					/>
-					<StoreCard
-						category={'Farmácia'}
-						handleClick={() => handleClick('pharmacy')}
-						image={pharmacy}
-					/>
-					<StoreCard
-						category={'Acessórios'}
-						handleClick={() => handleClick('accessory')}
-						image={accessory}
-					/>
+					{categories.length > 0 &&
+						categories.map((category, index) => (
+							<StoreCard
+								key={index}
+								category={category}
+								handleClick={() => handleClick(category.type)}
+							/>
+						))}
 				</ScrollView>
 			</View>
 		</>

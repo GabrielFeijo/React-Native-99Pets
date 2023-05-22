@@ -10,7 +10,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Minhas rotas',
-		navigate: 'routes',
+		navigate: 'RouteHistory',
 	},
 	{
 		index: 1,
@@ -21,5 +21,6 @@ export const lista = [
 			/>
 		),
 		nome: 'Carteira',
+		navigate: 'Wallet',
 	},
 ];

@@ -109,10 +109,9 @@ const HomeDriver = (props) => {
 									longitude: region.longitude,
 								}}
 								image={
-									'https://www.shareicon.net/data/256x256/2016/01/15/703693_gps_512x512.png'
+									'https://cdn.discordapp.com/attachments/943999603328569424/1107682233378164827/gps.png'
 								}
 								title={'Sua Localização'}
-								style={{ width: 6, height: 28 }}
 							/>
 						</MapView>
 					)}

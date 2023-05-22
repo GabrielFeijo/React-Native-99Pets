@@ -22,8 +22,15 @@ import {
 	Title,
 	MarketImage,
 	MarketBox,
+	RouteBox,
+	RouteTitle,
+	RouteAddress,
+	AnimalText,
+	RouteStatus,
+	WalletText,
 } from './style';
 import market from '../../../assets/market.png';
+import { Location } from 'iconsax-react-native';
 
 export const Card = ({ id, nome, info, info2, url }) => {
 	return (
@@ -113,6 +120,15 @@ export const MainCard = ({ nome, icon, handleClick }) => {
 	);
 };
 
+export const WalletCard = ({ nome, icon, handleClick }) => {
+	return (
+		<MainBox onPress={handleClick}>
+			{icon}
+			<WalletText>{nome}</WalletText>
+		</MainBox>
+	);
+};
+
 export const MarketCard = ({ handleClick }) => {
 	return (
 		<MarketBox onPress={handleClick}>
@@ -125,11 +141,11 @@ export const MarketCard = ({ handleClick }) => {
 	);
 };
 
-export const StoreCard = ({ category, image, handleClick }) => {
+export const StoreCard = ({ category, handleClick }) => {
 	return (
 		<StoreBox onPress={handleClick}>
-			<Category>{category}</Category>
-			<StoreImage source={image} />
+			<Category>{category.name}</Category>
+			<StoreImage source={category.image} />
 		</StoreBox>
 	);
 };
@@ -148,5 +164,20 @@ export const ItemCard = ({ product, handleClick }) => {
 				<Price>R$ {product.price.toFixed(2).replace('.', ',')}</Price>
 			</View>
 		</ItemBox>
+	);
+};
+
+export const RouteCard = ({ route, handleClick }) => {
+	return (
+		<RouteBox onPress={handleClick}>
+			<Location color='#000000' />
+			<View style={{ marginLeft: 10 }}>
+				<RouteTitle>Rota #14</RouteTitle>
+				<RouteAddress>
+					Rua Tal e Tal, 57 - <RouteStatus>Corrida atual</RouteStatus>
+				</RouteAddress>
+				<AnimalText>Cahorro - Pug</AnimalText>
+			</View>
+		</RouteBox>
 	);
 };
