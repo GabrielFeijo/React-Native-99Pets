@@ -9,24 +9,26 @@ export const Text = styled.Text`
 	margin-bottom: 10px;
 `;
 
+export const BoxService = styled.TouchableOpacity`
+	display: flex;
+	align-content: center;
+	align-items: center;
+	flex-direction: row;
+`;
+export const ServiceText = styled.Text`
+	font-family: Montserrat_700Bold;
+	font-size: 14px;
+	margin-left: 5px;
+	color: rgba(0, 0, 0, 0.7);
+`;
+
 export const styles = StyleSheet.create({
 	wrap: {
 		width: '85%',
 		marginLeft: 'auto',
 		marginRight: 'auto',
 	},
-	icone: {
-		display: 'flex',
-		alignContent: 'center',
-		alignItems: 'center',
-		gap: 5,
-		flexDirection: 'row',
-		marginBottom: 40,
-	},
-	textIcone: {
-		fontSize: 16,
-		fontFamily: 'Montserrat_700Bold',
-	},
+
 	texto: {
 		maxWidth: 350,
 	},

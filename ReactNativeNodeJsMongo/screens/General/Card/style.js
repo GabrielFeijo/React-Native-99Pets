@@ -180,7 +180,7 @@ export const Price = styled.Text`
 	color: rgba(0, 0, 0, 0.57);
 `;
 
-export const RouteBox = styled.TouchableOpacity`
+export const HistoryBox = styled.TouchableOpacity`
 	width: 100%;
 
 	display: flex;
@@ -193,13 +193,13 @@ export const RouteBox = styled.TouchableOpacity`
 	padding-bottom: 20px;
 `;
 
-export const RouteTitle = styled.Text`
+export const HistoryTitle = styled.Text`
 	font-family: Montserrat_700Bold;
 	color: rgba(0, 0, 0, 0.57);
 	font-size: 16px;
 `;
 
-export const RouteAddress = styled.Text`
+export const HistoryInfo = styled.Text`
 	font-family: Montserrat_700Bold;
 	color: rgba(0, 0, 0, 0.57);
 	margin: 8px 0;
@@ -213,6 +213,13 @@ export const AnimalText = styled.Text`
 	font-family: Montserrat_400Regular;
 	color: rgba(0, 0, 0, 0.57);
 	font-size: 12px;
+`;
+
+export const FlexBox = styled.View`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 export const styles = StyleSheet.create({

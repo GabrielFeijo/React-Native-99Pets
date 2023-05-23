@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, View } from 'react-native';
-import { Text, styles } from './style';
+import { BoxService, ServiceText, Text, styles } from './style';
 import { Icon } from 'react-native-elements';
 import { NineMenu } from '../../NavBar/Menu';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ListServices } from '../components/ServicesComponents';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect } from 'react';
-import { useState } from 'react';
+
 import api from '../../../axios/config';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -58,8 +57,8 @@ const ServicesPage = (props) => {
 					Aqui estão os serviços oferecidos pelo seu Petshop
 				</Text>
 				{services.length > 0 && <ListServices services={services} />}
-				<TouchableOpacity
-					style={styles.icone}
+
+				<BoxService
 					onPress={() => {
 						props.navigation.navigate('EditService');
 					}}
@@ -67,10 +66,10 @@ const ServicesPage = (props) => {
 					<Icon
 						name='pluscircleo'
 						type='antdesign'
-						size={30}
+						size={28}
 					/>
-					<Text style={styles.textIcone}>Editar ou adicionar novo serviço</Text>
-				</TouchableOpacity>
+					<ServiceText>Editar ou adicionar novo serviço</ServiceText>
+				</BoxService>
 			</View>
 		</>
 	);

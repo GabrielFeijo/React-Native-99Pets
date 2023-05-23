@@ -22,15 +22,16 @@ import {
 	Title,
 	MarketImage,
 	MarketBox,
-	RouteBox,
-	RouteTitle,
-	RouteAddress,
+	HistoryTitle,
+	HistoryInfo,
 	AnimalText,
 	RouteStatus,
 	WalletText,
+	HistoryBox,
+	FlexBox,
 } from './style';
 import market from '../../../assets/market.png';
-import { Location } from 'iconsax-react-native';
+import { Location, LocationTick } from 'iconsax-react-native';
 
 export const Card = ({ id, nome, info, info2, url }) => {
 	return (
@@ -167,17 +168,39 @@ export const ItemCard = ({ product, handleClick }) => {
 	);
 };
 
-export const RouteCard = ({ route, handleClick }) => {
+export const RouteCard = ({ route, number, handleClick }) => {
 	return (
-		<RouteBox onPress={handleClick}>
+		<HistoryBox onPress={handleClick}>
 			<Location color='#000000' />
 			<View style={{ marginLeft: 10 }}>
-				<RouteTitle>Rota #14</RouteTitle>
-				<RouteAddress>
-					Rua Tal e Tal, 57 - <RouteStatus>Corrida atual</RouteStatus>
-				</RouteAddress>
-				<AnimalText>Cahorro - Pug</AnimalText>
+				<HistoryTitle>Rota #{number}</HistoryTitle>
+				<HistoryInfo>
+					{route.address}, {route.number} -{' '}
+					<RouteStatus>
+						{route.finished ? 'Finalizada' : 'Corrida atual'}
+					</RouteStatus>
+				</HistoryInfo>
+				<AnimalText>
+					{route.pet.species} - {route.pet.breed}
+				</AnimalText>
 			</View>
-		</RouteBox>
+		</HistoryBox>
+	);
+};
+
+export const HistoryCard = ({ service }) => {
+	return (
+		<HistoryBox>
+			<LocationTick color='#000000' />
+			<View style={{ marginLeft: 10, width: '90%' }}>
+				<FlexBox>
+					<HistoryTitle>{service.name}l</HistoryTitle>
+					<HistoryTitle>
+						R$ {service.price.toFixed(2).replace('.', ',')}
+					</HistoryTitle>
+				</FlexBox>
+				<HistoryInfo>Pagamento via {service.payment_method}</HistoryInfo>
+			</View>
+		</HistoryBox>
 	);
 };

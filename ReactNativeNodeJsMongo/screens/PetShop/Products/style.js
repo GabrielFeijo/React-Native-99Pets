@@ -2,15 +2,10 @@ import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 
 export const Titulo = styled.Text`
-	color: black;
 	font-size: 24px;
-	font-family: Montserrat_400Regular;
+	font-family: Montserrat_600SemiBold;
 	color: rgba(0, 0, 0, 0.57);
 	margin-top: 20px;
-`;
-export const Nome = styled.Text`
-	font-family: Montserrat_600SemiBold;
-	text-transform: capitalize;
 `;
 
 export const Text = styled.Text`
@@ -20,18 +15,22 @@ export const Text = styled.Text`
 	margin: 10px 0;
 `;
 
-export const FlexBox = styled.View`
-	flex: 1;
-	flex-wrap: wrap;
+export const NewProduct = styled.TouchableOpacity`
+	display: flex;
+	align-content: center;
+	align-items: center;
 	flex-direction: row;
-	// gap: 24px;
-	justify-content: space-between;
-	padding-bottom: 10px;
-	margin-top: 16px;
+`;
+export const ProductText = styled.Text`
+	font-family: Montserrat_700Bold;
+	font-size: 14px;
+	margin-left: 5px;
+	color: rgba(0, 0, 0, 0.7);
 `;
 
 export const styles = StyleSheet.create({
 	wrap: {
+		flex: 1,
 		width: '85%',
 		marginLeft: 'auto',
 		marginRight: 'auto',

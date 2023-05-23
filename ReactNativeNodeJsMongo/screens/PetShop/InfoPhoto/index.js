@@ -37,25 +37,27 @@ const InfoPhoto = (props) => {
 			Alert.alert('você precisa de permissão para isso');
 		}
 	};
+
 	const pickFromCamera = async () => {
-		const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-		if (granted) {
-			let data = await ImagePicker.launchCameraAsync({
+		const { status } = await ImagePicker.requestCameraPermissionsAsync();
+		if (status === 'granted') {
+			let result = await ImagePicker.launchCameraAsync({
 				mediaTypes: ImagePicker.MediaTypeOptions.Images,
 				allowsEditing: true,
 				aspect: [1, 1],
 				quality: 0.5,
 			});
-			if (!data.cancelled) {
+			if (!result.canceled) {
 				let newfile = {
-					uri: data.uri,
-					type: `test/${data.uri.split('.')[1]}`,
-					name: `test.${data.uri.split('.')[1]}`,
+					uri: result.assets[0].uri,
+					type: `test/${result.assets[0].uri.split('.').pop()}`,
+					name: `test.${result.assets[0].uri.split('.').pop()}`,
 				};
 				handleUpload(newfile);
+				setLoading(true);
 			}
 		} else {
-			Alert.alert('você precisa de permissão para isso');
+			Alert.alert('Você precisa de permissão para isso');
 		}
 	};
 

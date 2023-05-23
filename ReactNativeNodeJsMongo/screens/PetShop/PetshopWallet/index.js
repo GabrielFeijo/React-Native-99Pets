@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
 import { Titulo, Text, styles, Flex, HistoryText } from './style';
 import { NineMenu } from '../../NavBar/Menu';
-import { MainCard, RouteCard, WalletCard } from '../../General/Card';
+import { HistoryCard, ServiceCard, WalletCard } from '../../General/Card';
 import { EmptyWallet } from 'iconsax-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
 
-const Wallet = (props) => {
-	const [routes, setRoutes] = useState([]);
+const PetshopWallet = (props) => {
+	const [services, setServices] = useState([]);
 	const [wallet, setWallet] = useState(0);
 
 	function fetchData() {
@@ -19,13 +19,13 @@ const Wallet = (props) => {
 				const userJson = JSON.parse(userStorage);
 
 				try {
-					const response = await api.get(`/api/driver/${userJson.id}`, {
+					const response = await api.get(`/api/shop`, {
 						headers: {
 							id: userJson.id,
 							token: userJson.token,
 						},
 					});
-					setRoutes(response.data.routes);
+					setServices(response.data.serviceHistory);
 					setWallet(Number(response.data.wallet_value));
 				} catch (error) {
 					console.log(error);
@@ -73,19 +73,15 @@ const Wallet = (props) => {
 					showsVerticalScrollIndicator={false}
 					showsHorizontalScrollIndicator={false}
 				>
-					{routes.length > 0 ? (
-						routes.map(
-							(route, index) =>
-								route.finished && (
-									<RouteCard
-										route={route}
-										number={routes.length - index}
-										key={index}
-									/>
-								)
-						)
+					{services.length > 0 ? (
+						services.map((service, index) => (
+							<HistoryCard
+								service={service}
+								key={index}
+							/>
+						))
 					) : (
-						<Text>Você ainda não fez nenhuma corrida!</Text>
+						<Text>Você ainda possui nenhum ganho!</Text>
 					)}
 				</ScrollView>
 			</View>
@@ -93,4 +89,4 @@ const Wallet = (props) => {
 	);
 };
 
-export default Wallet;
+export default PetshopWallet;

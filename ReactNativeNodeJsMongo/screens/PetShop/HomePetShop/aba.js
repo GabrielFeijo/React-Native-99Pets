@@ -40,6 +40,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Carteira',
+		navigate: 'PetshopWallet',
 	},
 	{
 		index: 3,
@@ -50,6 +51,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Produtos',
+		navigate: 'Products',
 	},
 	{
 		index: 4,
@@ -60,6 +62,7 @@ export const lista = [
 			/>
 		),
 		nome: 'Avaliações',
+		navigate: 'Comments',
 	},
 	{
 		index: 5,
@@ -70,5 +73,6 @@ export const lista = [
 			/>
 		),
 		nome: 'Meu Petshop',
+		navigate: 'MyPetShop',
 	},
 ];

@@ -43,7 +43,11 @@ import StoreCategory from '../screens/User/StoreCategory';
 import RouteHistory from '../screens/Driver/RouteHistory';
 import RouteDetails from '../screens/Driver/RouteDetails';
 import Wallet from '../screens/Driver/Wallet';
-import TransferMoney from '../screens/Driver/TransferMoney';
+import TransferMoney from '../screens/General/TransferMoney';
+import PetshopWallet from '../screens/PetShop/PetshopWallet';
+import Products from '../screens/PetShop/Products';
+import Comments from '../screens/PetShop/Comments';
+import MyPetShop from '../screens/PetShop/MyPetShop';
 
 const Stack = createStackNavigator();
 
@@ -271,6 +275,31 @@ function PetShop() {
 					name='ServicesPage'
 					component={ServicesPage}
 					options={{ ...myOptions, title: 'Serviços' }}
+				/>
+				<Stack.Screen
+					name='Products'
+					component={Products}
+					options={{ ...myOptions, title: 'Meus produtos' }}
+				/>
+				<Stack.Screen
+					name='Comments'
+					component={Comments}
+					options={{ ...myOptions, title: 'Comentários' }}
+				/>
+				<Stack.Screen
+					name='MyPetShop'
+					component={MyPetShop}
+					options={{ ...myOptions, title: 'Meu PetShop' }}
+				/>
+				<Stack.Screen
+					name='PetshopWallet'
+					component={PetshopWallet}
+					options={{ ...myOptions, title: 'Carteira' }}
+				/>
+				<Stack.Screen
+					name='TransferMoney'
+					component={TransferMoney}
+					options={{ ...myOptions, title: 'Transferir' }}
 				/>
 				<Stack.Screen
 					name='EditService'
