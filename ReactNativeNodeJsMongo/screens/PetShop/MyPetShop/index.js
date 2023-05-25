@@ -4,9 +4,11 @@ import { Titulo, Text, styles } from './style';
 import { NineMenu } from '../../NavBar/Menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
+import { Card2, PetShopCard } from '../../General/Card';
+import { ListServices } from '../components/ServicesComponents';
 
 const MyPetShop = (props) => {
-	const [services, setServices] = useState([]);
+	const [petShop, setPetShop] = useState('');
 
 	function fetchData() {
 		(async () => {
@@ -15,20 +17,19 @@ const MyPetShop = (props) => {
 				// value previously stored
 				const userJson = JSON.parse(userStorage);
 
-				// try {
-				// 	const response = await api.get(`/api/shop`, {
-				// 		headers: {
-				// 			id: userJson.id,
-				// 			token: userJson.token,
-				// 		},
-				// 	});
-				// 	setServices(response.data.serviceHistory);
-				// 	setWallet(Number(response.data.wallet_value));
-				// } catch (error) {
-				// 	console.log(error);
+				try {
+					const response = await api.get(`/api/shop`, {
+						headers: {
+							id: userJson.id,
+							token: userJson.token,
+						},
+					});
+					setPetShop(response.data);
+				} catch (error) {
+					console.log(error);
 
-				// 	Alert.alert(error.response.data);
-				// }
+					Alert.alert(error.response.data);
+				}
 			}
 		})();
 	}
@@ -40,10 +41,20 @@ const MyPetShop = (props) => {
 			<NineMenu />
 			<View style={styles.wrap}>
 				<Titulo>Seu Petshop</Titulo>
+				{petShop && (
+					<PetShopCard
+						url={petShop.pictureUrl}
+						nome={petShop.nome}
+						info={petShop.CNPJ}
+						quantidade={3}
+					/>
+				)}
 				<Text>
-					Especializado em Tosa Verão, o Casa de Amigos é recomendado pra pets
-					de pequeno a grande porte.
+					Aqui você encontrará uma descrição de como os tutores de animais de
+					estimação verão seu pet shop neste aplicativo.
 				</Text>
+				<Text style={styles.texto}>Serviços oferecidos:</Text>
+				{petShop && <ListServices services={petShop.services} />}
 			</View>
 		</>
 	);

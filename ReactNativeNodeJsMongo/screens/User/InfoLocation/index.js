@@ -54,7 +54,11 @@ const InfoLocation = (props) => {
 				<View>
 					<Button
 						onPress={() => {
-							props.navigation.navigate('DriverLocation');
+							props.navigation.navigate('PaymentMethod', {
+								petid,
+								services,
+								Pet,
+							});
 						}}
 					>
 						<ButtonText>Próximo</ButtonText>

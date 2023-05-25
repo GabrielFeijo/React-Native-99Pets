@@ -113,7 +113,7 @@ const EditPet = (props) => {
 	}
 
 	const pickFromGallery = async () => {
-		const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+		const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
 		if (granted) {
 			let data = await ImagePicker.launchImageLibraryAsync({
 				mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -121,17 +121,20 @@ const EditPet = (props) => {
 				aspect: [1, 1],
 				quality: 0.5,
 			});
-			if (!data.cancelled) {
+			if (!data.canceled) {
 				let newfile = {
-					uri: data.uri,
-					type: `test/${data.uri.split('.')[1]}`,
-					name: `test.${data.uri.split('.')[1]}`,
+					uri: data.assets[0].uri,
+					type: `test/${data.assets[0].uri.split('.')[1]}`,
+					name: `test.${data.assets[0].uri.split('.')[1]}`,
 				};
 				handleUpload(newfile);
 				setLoading(true);
+				setLoadingMessage(
+					'Aguarde estamos processando e classificando sua imagem!'
+				);
 			}
 		} else {
-			Alert.alert('você precisa de permissão para isso');
+			Alert.alert('Você precisa de permissão para isso');
 		}
 	};
 

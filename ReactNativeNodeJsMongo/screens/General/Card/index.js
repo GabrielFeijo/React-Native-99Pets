@@ -29,6 +29,9 @@ import {
 	WalletText,
 	HistoryBox,
 	FlexBox,
+	CommentBox,
+	Name,
+	Comment,
 } from './style';
 import market from '../../../assets/market.png';
 import { Location, LocationTick } from 'iconsax-react-native';
@@ -63,6 +66,32 @@ export const Card2 = ({ id, url, nome, info, quantidade }) => {
 	return (
 		<TouchableOpacity style={styles.wrap}>
 			<Image source={url} />
+			<Description>
+				<Text>{nome}</Text>
+				<TextInfo>{info}</TextInfo>
+				<TextInfo>{stars}</TextInfo>
+			</Description>
+		</TouchableOpacity>
+	);
+};
+
+export const PetShopCard = ({ id, url, nome, info, quantidade }) => {
+	let stars = [];
+	for (let i = 0; i < quantidade; i++) {
+		stars.push(
+			<Icon
+				name='star'
+				type='FontAwesome'
+				size={30}
+				color='#ffc107'
+				key={'gg' + i}
+			/>
+		);
+	}
+
+	return (
+		<TouchableOpacity style={styles.wrap}>
+			<Image source={{ uri: url }} />
 			<Description>
 				<Text>{nome}</Text>
 				<TextInfo>{info}</TextInfo>
@@ -194,7 +223,7 @@ export const HistoryCard = ({ service }) => {
 			<LocationTick color='#000000' />
 			<View style={{ marginLeft: 10, width: '90%' }}>
 				<FlexBox>
-					<HistoryTitle>{service.name}l</HistoryTitle>
+					<HistoryTitle>{service.name}</HistoryTitle>
 					<HistoryTitle>
 						R$ {service.price.toFixed(2).replace('.', ',')}
 					</HistoryTitle>
@@ -202,5 +231,31 @@ export const HistoryCard = ({ service }) => {
 				<HistoryInfo>Pagamento via {service.payment_method}</HistoryInfo>
 			</View>
 		</HistoryBox>
+	);
+};
+
+export const CommentCard = ({ comment }) => {
+	let stars = [];
+	for (let i = 0; i < comment.rating; i++) {
+		stars.push(
+			<Icon
+				name='star'
+				type='FontAwesome'
+				size={20}
+				color='#ffc107'
+				key={'gg' + i}
+			/>
+		);
+	}
+	return (
+		<CommentBox>
+			<View style={{ width: '100%' }}>
+				<FlexBox>
+					<Name>{comment.name}</Name>
+					<Text>{stars}</Text>
+				</FlexBox>
+				<Comment>{comment.comment}</Comment>
+			</View>
+		</CommentBox>
 	);
 };

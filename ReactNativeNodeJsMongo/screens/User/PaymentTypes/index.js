@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { View, ActivityIndicator, ScrollView } from 'react-native';
 import { Titulo, Input } from '../../General/Login/style';
 import { Button, ButtonText } from '../../General/Home/style';
-import { Flex, FlexBox, Text, styles } from './style';
+import { Flex, FlexBox, Price, Text, styles } from './style';
 import { useAuth } from '../../../contexts/Auth';
 import Checkbox from 'expo-checkbox';
 
 export const TransferByPix = (props) => {
 	const [enableshift, setenableShift] = useState(false);
-	const [nome, onChangeNome] = useState('');
-	const [Pix, onChangePix] = useState('');
+	const [coupon, onChangeCoupon] = useState('');
 
-	const [save, setSave] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const auth = useAuth();
 
@@ -27,38 +25,20 @@ export const TransferByPix = (props) => {
 			)}
 			<FlexBox>
 				<View>
-					<Titulo>Transferir saldo por Pix</Titulo>
+					<Titulo>Pagar com Pix</Titulo>
 
 					<Input
-						value={nome}
-						onChangeText={onChangeNome}
-						placeholder='Nome completo'
-						label='Nome completo'
+						value={coupon}
+						onChangeText={onChangeCoupon}
+						placeholder='Adicionar cupom de desconto'
+						label='Adicionar cupom de desconto'
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
-					<Input
-						value={Pix}
-						onChangeText={onChangePix}
-						autoCapitalize='none'
-						placeholder='Chave Pix'
-						label='Chave Pix'
-						placeholderTextColor='#000000b3'
-						onFocus={() => setenableShift(true)}
-					/>
-
-					<Flex>
-						<Checkbox
-							value={save}
-							onValueChange={setSave}
-							color={'green'}
-							style={{ borderRadius: 20 }}
-						/>
-						<Text>Salvar essa chave</Text>
-					</Flex>
+					<Price>Total: R$ 82,00</Price>
 				</View>
 				<Button>
-					<ButtonText>Transferir</ButtonText>
+					<ButtonText>Gerar pix</ButtonText>
 				</Button>
 			</FlexBox>
 		</>
@@ -67,9 +47,10 @@ export const TransferByPix = (props) => {
 
 export const TransferByBank = (props) => {
 	const [enableshift, setenableShift] = useState(false);
-	const [nome, onChangeNome] = useState('');
-	const [Bank, onChangeBank] = useState('');
-
+	const [nome, onChangeNome] = useState(null);
+	const [CardNumber, onChangeCardNumber] = useState(null);
+	const [CVV, onChangeCVV] = useState(null);
+	const [coupon, onChangeCoupon] = useState('');
 	const [save, setSave] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const auth = useAuth();
@@ -85,40 +66,33 @@ export const TransferByBank = (props) => {
 				</View>
 			)}
 			<FlexBox>
-				<Titulo>Transferir saldo por conta bancária</Titulo>
+				<Titulo>Pagar com conta bancária</Titulo>
 				<ScrollView>
 					<Input
 						value={nome}
 						onChangeText={onChangeNome}
-						placeholder='Nome completo'
-						label='Nome completo'
+						placeholder='Nome no cartão'
+						label='Nome no cartão'
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
 					<Input
-						value={Bank}
-						onChangeText={onChangeBank}
+						value={CardNumber}
+						onChangeText={onChangeCardNumber}
 						autoCapitalize='none'
-						placeholder='Banco'
-						label='Banco'
+						placeholder='Número do cartão'
+						label='Número do cartão'
+						keyboardType='numeric'
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
 					<Input
-						value={Bank}
-						onChangeText={onChangeBank}
+						value={CVV}
+						onChangeText={onChangeCVV}
 						autoCapitalize='none'
-						placeholder='Número da conta com dígito'
-						label='Número da conta com dígito'
-						placeholderTextColor='#000000b3'
-						onFocus={() => setenableShift(true)}
-					/>
-					<Input
-						value={Bank}
-						onChangeText={onChangeBank}
-						autoCapitalize='none'
-						placeholder='Agência'
-						label='Agência'
+						placeholder='CVV'
+						label='CVV'
+						keyboardType='numeric'
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
@@ -130,11 +104,21 @@ export const TransferByBank = (props) => {
 							color={'green'}
 							style={{ borderRadius: 20 }}
 						/>
-						<Text>Salvar essa conta</Text>
+						<Text>Salvar esse cartão</Text>
 					</Flex>
+					<Input
+						value={coupon}
+						onChangeText={onChangeCoupon}
+						placeholder='Adicionar cupom de desconto'
+						label='Adicionar cupom de desconto'
+						placeholderTextColor='#000000b3'
+						onFocus={() => setenableShift(true)}
+					/>
+					<Price>Total: R$ 82,00</Price>
 				</ScrollView>
+
 				<Button>
-					<ButtonText>Transferir</ButtonText>
+					<ButtonText>Pagar com cartão</ButtonText>
 				</Button>
 			</FlexBox>
 		</>

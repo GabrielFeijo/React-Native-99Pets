@@ -217,9 +217,35 @@ export const AnimalText = styled.Text`
 
 export const FlexBox = styled.View`
 	display: flex;
+	align-content: center;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+`;
+
+export const CommentBox = styled.TouchableOpacity`
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+	margin-bottom: 24px;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	border-bottom-width: 1px;
+	padding-bottom: 10px;
+`;
+
+export const Name = styled.Text`
+	font-family: Montserrat_500Medium;
+	color: rgba(0, 0, 0, 0.57);
+	font-size: 16px;
+`;
+export const Comment = styled.Text`
+	font-family: Montserrat_400Regular;
+	margin: 8px 0;
+	color: rgba(0, 0, 0, 0.57);
+	font-size: 16px;
 `;
 
 export const styles = StyleSheet.create({

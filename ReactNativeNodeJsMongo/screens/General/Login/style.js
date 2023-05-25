@@ -6,9 +6,8 @@ export const Titulo = styled.Text`
 	font-size: 24px;
 	font-weight: 600;
 	font-family: OpenSans_600SemiBold;
-	margin-top: 20px;
-	margin-bottom: 20px;
 `;
+
 export const Input = styled.TextInput`
 	width: 100%;
 	font-size: 16px;

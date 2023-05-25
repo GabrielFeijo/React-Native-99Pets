@@ -13,6 +13,7 @@ export const Text = styled.Text`
 	font-size: 16px;
 	color: rgba(0, 0, 0, 0.57);
 	margin: 10px 0;
+	margin-bottom: 20px;
 `;
 
 export const styles = StyleSheet.create({

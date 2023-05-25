@@ -48,6 +48,9 @@ import PetshopWallet from '../screens/PetShop/PetshopWallet';
 import Products from '../screens/PetShop/Products';
 import Comments from '../screens/PetShop/Comments';
 import MyPetShop from '../screens/PetShop/MyPetShop';
+import RegisterProduct from '../screens/PetShop/RegisterProduct';
+import PaymentMethod from '../screens/User/PaymentMethod';
+import ClassifyPet from '../screens/User/ClassifyPet';
 
 const Stack = createStackNavigator();
 
@@ -152,6 +155,11 @@ function User() {
 					component={RegisterPet}
 					options={{ ...myOptions, title: 'Cadastro de Pet' }}
 				/>
+				<Stack.Screen
+					name='ClassifyPet'
+					component={ClassifyPet}
+					options={{ ...myOptions, title: 'Classificar Pet' }}
+				/>
 
 				<Stack.Screen
 					name='ServicePet'
@@ -172,6 +180,11 @@ function User() {
 					name='InfoLocation'
 					component={InfoLocation}
 					options={{ ...myOptions, title: 'Informações' }}
+				/>
+				<Stack.Screen
+					name='PaymentMethod'
+					component={PaymentMethod}
+					options={{ ...myOptions, title: 'Forma de Pagamento' }}
 				/>
 				<Stack.Screen
 					name='DriverLocation'
@@ -280,6 +293,11 @@ function PetShop() {
 					name='Products'
 					component={Products}
 					options={{ ...myOptions, title: 'Meus produtos' }}
+				/>
+				<Stack.Screen
+					name='RegisterProduct'
+					component={RegisterProduct}
+					options={{ ...myOptions, title: 'Adicionar produtos' }}
 				/>
 				<Stack.Screen
 					name='Comments'

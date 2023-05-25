@@ -28,6 +28,14 @@ export const ProductText = styled.Text`
 	color: rgba(0, 0, 0, 0.7);
 `;
 
+export const ProductsBox = styled.View`
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+`;
+
 export const styles = StyleSheet.create({
 	wrap: {
 		flex: 1,
