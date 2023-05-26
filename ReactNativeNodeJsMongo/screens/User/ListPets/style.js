@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	wrap: {
+		flex: 1,
 		width: '85%',
 		justifyContent: 'center',
 		marginLeft: 'auto',
@@ -37,7 +38,6 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		gap: 5,
 		flexDirection: 'row',
-		marginBottom: 40,
 	},
 	textIcone: {
 		fontSize: 16,

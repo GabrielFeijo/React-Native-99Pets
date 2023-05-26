@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
+import ChatBot from '../ChatBot';
 
 let organizado = [];
 const PhotoPet = (props) => {
@@ -56,6 +57,7 @@ const PhotoPet = (props) => {
 	return (
 		<>
 			<NineMenu />
+			<ChatBot />
 			<View style={styles.wrap}>
 				<ScrollView
 					showsVerticalScrollIndicator={false}
@@ -72,6 +74,19 @@ const PhotoPet = (props) => {
 					<MarketCard
 						handleClick={() => props.navigation.navigate('MarketPlace')}
 					/>
+					<TouchableOpacity
+						style={styles.icone}
+						onPress={() => {
+							props.navigation.navigate('CadastroPet');
+						}}
+					>
+						<Icon
+							name='pluscircleo'
+							type='antdesign'
+							size={30}
+						/>
+						<Text style={styles.textIcone}>Adicionar novo pet</Text>
+					</TouchableOpacity>
 
 					{pets.length > 0 ? (
 						pets.map((pet) => (
@@ -100,19 +115,6 @@ const PhotoPet = (props) => {
 							url={'https://i.imgur.com/4LSmGYF.png'}
 						/>
 					)}
-					<TouchableOpacity
-						style={styles.icone}
-						onPress={() => {
-							props.navigation.navigate('CadastroPet');
-						}}
-					>
-						<Icon
-							name='pluscircleo'
-							type='antdesign'
-							size={30}
-						/>
-						<Text style={styles.textIcone}>Adicionar novo pet</Text>
-					</TouchableOpacity>
 				</ScrollView>
 			</View>
 		</>
