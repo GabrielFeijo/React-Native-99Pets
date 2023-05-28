@@ -42,12 +42,13 @@ const AllLocations = (props) => {
 						trabalhando conosco.
 					</Text>
 					{locations.length > 0 &&
-						locations.map((location) => (
+						locations.map((location, index) => (
 							<PetShopCard
 								url={location.pictureUrl}
 								nome={location.nome}
-								info={location.CNPJ}
+								info={location.description}
 								quantidade={location.rating}
+								key={index}
 							/>
 						))}
 				</ScrollView>

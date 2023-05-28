@@ -24,10 +24,10 @@ import ClassifyPet from '../ClassifyPet';
 const RegisterPet = (props) => {
 	const [enableshift, setenableShift] = useState(false);
 	const [modal, setModal] = useState(false);
-	const [nome, onChangeNome] = useState('');
-	const [idade, onChangeIdade] = useState('');
-	const [raca, onChangeRaca] = useState('');
-	const [picture, setPicture] = useState('');
+	const [nome, onChangeNome] = useState(null);
+	const [idade, onChangeIdade] = useState(null);
+	const [raca, onChangeRaca] = useState(null);
+	const [picture, setPicture] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [loadingMessage, setLoadingMessage] = useState('Aguarde!');
 	const [classify, setClassify] = useState(false);
@@ -37,7 +37,7 @@ const RegisterPet = (props) => {
 	const auth = useAuth();
 
 	async function registrarPet() {
-		if (nome != '' && idade != '' && raca != '' && picture != '' && animal) {
+		if (nome && idade && raca && picture && animal) {
 			setLoading(true);
 			setLoadingMessage('Aguarde!');
 			setenableShift(false);
@@ -50,6 +50,7 @@ const RegisterPet = (props) => {
 					nome: nome,
 					idade: idade,
 					raca: raca,
+					tipo: animal,
 					picture: picture,
 				});
 
@@ -78,11 +79,11 @@ const RegisterPet = (props) => {
 		} else {
 			Alert.alert('Preencha todas as informações');
 		}
-		onChangeNome('');
-		onChangeIdade('');
-		onChangeRaca('');
-		setAnimal(null);
-		setPicture('');
+		// onChangeNome('');
+		// onChangeIdade('');
+		// onChangeRaca('');
+		// setAnimal(null);
+		// setPicture('');
 	}
 
 	const pickFromGallery = async () => {
@@ -167,10 +168,8 @@ const RegisterPet = (props) => {
 		}
 	};
 
-	const chooseAnimal = (status) => {
-		status
-			? setAnimal(animal)
-			: setAnimal(animal === 'Cachorro' ? 'Gato' : 'Cachorro');
+	const chooseAnimal = (tipo) => {
+		setAnimal(tipo);
 		setClassify(false);
 	};
 

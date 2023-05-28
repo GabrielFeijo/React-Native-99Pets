@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView, Alert } from 'react-native';
 import { Titulo, Input } from '../../General/Login/style';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Flex, FlexBox, Price, Text, styles } from './style';
 import { useAuth } from '../../../contexts/Auth';
 import Checkbox from 'expo-checkbox';
 
-export const TransferByPix = (props) => {
+export const TransferByPix = ({ handleClick, amount }) => {
 	const [enableshift, setenableShift] = useState(false);
 	const [coupon, onChangeCoupon] = useState('');
 
 	const [loading, setLoading] = useState(false);
-	const auth = useAuth();
 
 	return (
 		<>
@@ -35,9 +34,9 @@ export const TransferByPix = (props) => {
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
-					<Price>Total: R$ 82,00</Price>
+					<Price>Total: R$ {amount.toFixed(2).replace('.', ',')}</Price>
 				</View>
-				<Button>
+				<Button onPress={handleClick}>
 					<ButtonText>Gerar pix</ButtonText>
 				</Button>
 			</FlexBox>
@@ -45,15 +44,23 @@ export const TransferByPix = (props) => {
 	);
 };
 
-export const TransferByBank = (props) => {
+export const TransferByBank = ({ handleClick, amount }) => {
 	const [enableshift, setenableShift] = useState(false);
 	const [nome, onChangeNome] = useState(null);
-	const [CardNumber, onChangeCardNumber] = useState(null);
+	const [cardNumber, onChangeCardNumber] = useState(null);
 	const [CVV, onChangeCVV] = useState(null);
-	const [coupon, onChangeCoupon] = useState('');
+	const [coupon, onChangeCoupon] = useState(null);
 	const [save, setSave] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const auth = useAuth();
+
+	const processPayment = () => {
+		if (nome && cardNumber && CVV) {
+			handleClick();
+		} else {
+			Alert.alert('Preencha todas as informações!');
+		}
+	};
 
 	return (
 		<>
@@ -77,7 +84,7 @@ export const TransferByBank = (props) => {
 						onFocus={() => setenableShift(true)}
 					/>
 					<Input
-						value={CardNumber}
+						value={cardNumber}
 						onChangeText={onChangeCardNumber}
 						autoCapitalize='none'
 						placeholder='Número do cartão'
@@ -114,10 +121,10 @@ export const TransferByBank = (props) => {
 						placeholderTextColor='#000000b3'
 						onFocus={() => setenableShift(true)}
 					/>
-					<Price>Total: R$ 82,00</Price>
+					<Price>Total: R$ {amount.toFixed(2).replace('.', ',')}</Price>
 				</ScrollView>
 
-				<Button>
+				<Button onPress={processPayment}>
 					<ButtonText>Pagar com cartão</ButtonText>
 				</Button>
 			</FlexBox>

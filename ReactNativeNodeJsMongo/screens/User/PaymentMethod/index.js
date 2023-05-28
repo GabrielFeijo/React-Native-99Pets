@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import { Alert, Image, ScrollView, View } from 'react-native';
 import { styles, Text, ServiceBox, Flex, FlexBox } from './style';
 import { Titulo } from '../ListPets/style';
 import { NineMenu } from '../../NavBar/Menu';
-import { Card2 } from '../../General/Card';
+import { Card2, PetShopCard } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Service, ServiceText } from '../ServicePet/style';
 
@@ -11,12 +11,36 @@ import { WalletCard } from '../../General/Card';
 import { Card } from 'iconsax-react-native';
 import Pix from '../../../assets/images/pix.png';
 import { TransferByBank, TransferByPix } from '../PaymentTypes';
+import { useEffect } from 'react';
 
 const PaymentMethod = (props) => {
 	const petid = props.route.params.petid;
 	const services = props.route.params.services;
-	const Pet = props.route.params.Pet;
+	const Location = props.route.params.Location;
 	const [type, setType] = useState('Info');
+	const [amount, setAmount] = useState(0);
+
+	const handleClick = () => {
+		props.navigation.navigate('PaymentConfirmed', {
+			services: services,
+			amount: amount,
+		});
+	};
+
+	const handlePix = () => {
+		props.navigation.navigate('PixMethod', {
+			services: services,
+			amount: amount,
+		});
+	};
+
+	useEffect(() => {
+		let total = 0;
+		services.map((service) => {
+			total = total + service.price;
+		});
+		setAmount(total);
+	}, []);
 
 	return (
 		<>
@@ -49,15 +73,16 @@ const PaymentMethod = (props) => {
 				</View>
 				{type === 'Info' && (
 					<FlexBox>
-						<Card2
-							url={Pet.url}
-							nome={Pet.nome}
-							info={Pet.info}
-							quantidade={Pet.quantidade}
+						<PetShopCard
+							url={Location.pictureUrl}
+							nome={Location.nome}
+							info={Location.description}
+							quantidade={Location.rating}
 						/>
-
-						<Text>{Pet.description}</Text>
-
+						<Text>
+							Formas de pagamento flexíveis: pix, cartões. Facilidade para
+							cuidar do seu pet!
+						</Text>
 						<ScrollView style={{ marginVertical: 10 }}>
 							<ServiceBox>
 								<Text style={{ marginBottom: 10 }}>
@@ -65,22 +90,32 @@ const PaymentMethod = (props) => {
 								</Text>
 								{services.map((service, index) => (
 									<Service key={index}>
-										<ServiceText>{service}</ServiceText>
-										<Text>R$ 50,00</Text>
+										<ServiceText>{service.name}</ServiceText>
+										<Text>R$ {service.price.toFixed(2).replace('.', ',')}</Text>
 									</Service>
 								))}
 							</ServiceBox>
 						</ScrollView>
-						<Button>
+						<Button
+							onPress={() => Alert.alert('Selecione um método de pagamento')}
+						>
 							<ButtonText>Próximo</ButtonText>
 						</Button>
 					</FlexBox>
 				)}
 
 				{type === 'Pix' ? (
-					<TransferByPix />
+					<TransferByPix
+						handleClick={handlePix}
+						amount={amount}
+					/>
 				) : (
-					type === 'Bank' && <TransferByBank />
+					type === 'Bank' && (
+						<TransferByBank
+							handleClick={handleClick}
+							amount={amount}
+						/>
+					)
 				)}
 			</View>
 		</>

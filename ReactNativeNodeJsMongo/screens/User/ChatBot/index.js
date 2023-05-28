@@ -62,11 +62,13 @@ const ChatBot = () => {
 					},
 				]);
 				setDisabled(false);
+				setTimeout(() => {
+					scrollViewRef.current.scrollToEnd({ animated: true });
+				}, 50);
 			} catch (err) {
 				console.log(err);
 				Alert.alert('Erro na resposta da IA');
 			}
-			scrollViewRef.current.scrollToEnd({ animated: true });
 		}
 	};
 
@@ -78,7 +80,6 @@ const ChatBot = () => {
 			{visibility && (
 				<Backgound>
 					<Close onPress={changeVisibility}></Close>
-
 					<Box>
 						<Line />
 						<ScrollView

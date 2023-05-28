@@ -51,6 +51,8 @@ import MyPetShop from '../screens/PetShop/MyPetShop';
 import RegisterProduct from '../screens/PetShop/RegisterProduct';
 import PaymentMethod from '../screens/User/PaymentMethod';
 import ClassifyPet from '../screens/User/ClassifyPet';
+import PaymentConfirmed from '../screens/User/PaymentConfirmed';
+import PixMethod from '../screens/User/PixMethod';
 
 const Stack = createStackNavigator();
 
@@ -185,6 +187,16 @@ function User() {
 					name='PaymentMethod'
 					component={PaymentMethod}
 					options={{ ...myOptions, title: 'Forma de Pagamento' }}
+				/>
+				<Stack.Screen
+					name='PaymentConfirmed'
+					component={PaymentConfirmed}
+					options={{ ...myOptions, title: 'Pagamento confirmado' }}
+				/>
+				<Stack.Screen
+					name='PixMethod'
+					component={PixMethod}
+					options={{ ...myOptions, title: 'Pagamento confirmado' }}
 				/>
 				<Stack.Screen
 					name='DriverLocation'

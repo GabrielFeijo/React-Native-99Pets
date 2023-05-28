@@ -54,10 +54,14 @@ const ClassifyPet = ({ predict, picture, handleClick }) => {
 					}}
 				/>
 				<View>
-					<Button onPress={() => handleClick(true)}>
+					<Button onPress={() => handleClick(animal)}>
 						<ButtonText>Está correto!</ButtonText>
 					</Button>
-					<ButtonRefuse onPress={() => handleClick(false)}>
+					<ButtonRefuse
+						onPress={() =>
+							handleClick(animal === 'Cachorro' ? 'Gato' : 'Cachorro')
+						}
+					>
 						<ButtonRefuseText>Não está correto</ButtonRefuseText>
 					</ButtonRefuse>
 				</View>

@@ -42,6 +42,14 @@ const pickerSelectStyles = StyleSheet.create({
 	},
 });
 
+const data = [
+	{ name: 'Banho e Tosa', price: 50 },
+	{ name: 'Consultas veterinárias', price: 72 },
+	{ name: 'Vacinas', price: 122 },
+	{ name: 'Hospedagem', price: 95 },
+	{ name: 'Spa', price: 43 },
+];
+
 const ServicePet = (props) => {
 	const [selected, setSelected] = useState(null);
 	const [services, setServices] = useState([]);
@@ -72,9 +80,12 @@ const ServicePet = (props) => {
 		if (value == null) {
 			return;
 		}
-		let index = services.findIndex((val) => val == value);
+		let index = services.findIndex((val) => val.name == value.name);
 		if (index < 0) {
-			setServices((oldArray) => [...oldArray, value]);
+			setServices((oldArray) => [
+				...oldArray,
+				{ name: value.name, price: value.price },
+			]);
 		}
 	};
 
@@ -93,15 +104,15 @@ const ServicePet = (props) => {
 				style={pickerSelectStyles}
 				placeholder={{ label: 'Qual serviço?', value: null }}
 				items={[
-					{ label: 'Banho e Tosa', value: 'Banho & Tosa' },
-					{ label: 'Consultas veterinárias', value: 'Consultas veterinárias' },
-					{ label: 'Vacinas', value: 'Vacinas' },
-					{ label: 'Hospedagem', value: 'Hospedagem' },
-					{ label: 'Spa', value: 'Spa' },
+					{ label: 'Banho e Tosa', value: 0 },
+					{ label: 'Consultas veterinárias', value: 1 },
+					{ label: 'Vacinas', value: 2 },
+					{ label: 'Hospedagem', value: 3 },
+					{ label: 'Spa', value: 4 },
 				]}
 				value={selected}
 				onValueChange={(value) => {
-					addService(value);
+					addService(data[value]);
 					setSelected(value);
 				}}
 				Icon={() => {
@@ -147,7 +158,7 @@ const ServicePet = (props) => {
 					{services.length > 0 ? (
 						services.map((service, index) => (
 							<Service key={index}>
-								<ServiceText>{service}</ServiceText>
+								<ServiceText>{service.name}</ServiceText>
 								<Icon
 									name='close'
 									type='EvilIcons'

@@ -16,9 +16,7 @@ export const Text = styled.Text`
 	text-align: left;
 `;
 
-export const ServiceBox = styled.View`
-	width: 85%;
-`;
+export const ServiceBox = styled.View``;
 
 export const Flex = styled.View`
 	display: flex;

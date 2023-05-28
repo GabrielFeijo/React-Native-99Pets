@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import {
-	TextInfo,
-	styles,
-	Box,
-	ConfirmBox,
-	TituloBox,
-	Text,
-	ServiceBox,
-} from './style';
+import { styles, Box, ConfirmBox, TituloBox, Text, ServiceBox } from './style';
 import { Titulo } from '../ListPets/style';
 import { NineMenu } from '../../NavBar/Menu';
-import { Icon } from 'react-native-elements';
-import { Card2 } from '../../General/Card';
+import { PetShopCard } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Service, ServiceText } from '../ServicePet/style';
 
@@ -21,7 +12,7 @@ const InfoLocation = (props) => {
 
 	const petid = props.route.params.petid;
 	const services = props.route.params.services;
-	const Pet = props.route.params.Pet;
+	const Location = props.route.params.location;
 
 	return (
 		<>
@@ -30,14 +21,17 @@ const InfoLocation = (props) => {
 			<View style={styles.root}>
 				<View style={styles.wrap}>
 					<Titulo>Qual Petshop?</Titulo>
-					<Card2
-						url={Pet.url}
-						nome={Pet.nome}
-						info={Pet.info}
-						quantidade={Pet.quantidade}
+					<PetShopCard
+						url={Location.pictureUrl}
+						nome={Location.nome}
+						info={Location.description}
+						quantidade={Location.rating}
 					/>
 
-					<Text>{Pet.description}</Text>
+					<Text>
+						Este é o pet shop escolhido, onde o cuidado excepcional e a paixão
+						pelos pets se encontram em cada detalhe.
+					</Text>
 				</View>
 				<ServiceBox>
 					<Text style={{ marginBottom: 10 }}>
@@ -45,8 +39,8 @@ const InfoLocation = (props) => {
 					</Text>
 					{services.map((service, index) => (
 						<Service key={index}>
-							<ServiceText>{service}</ServiceText>
-							<Text>R$ 50,00</Text>
+							<ServiceText>{service.name}</ServiceText>
+							<Text>R$ {service.price.toFixed(2).replace('.', ',')}</Text>
 						</Service>
 					))}
 				</ServiceBox>
@@ -57,7 +51,7 @@ const InfoLocation = (props) => {
 							props.navigation.navigate('PaymentMethod', {
 								petid,
 								services,
-								Pet,
+								Location,
 							});
 						}}
 					>
