@@ -28,6 +28,7 @@
 		"expo-linear-gradient": "~12.1.2",
 		"expo-location": "~15.1.1",
 		"expo-permissions": "~14.1.1",
+		"expo-updates": "~0.16.4",
 		"iconsax-react-native": "^0.0.8",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

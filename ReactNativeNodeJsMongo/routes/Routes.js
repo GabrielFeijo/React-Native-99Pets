@@ -272,6 +272,11 @@ function Driver() {
 					component={TransferMoney}
 					options={{ ...myOptions, title: 'Transferir' }}
 				/>
+				<Stack.Screen
+					name='ListSquad'
+					component={ListSquad}
+					options={{ ...myOptions, title: 'Equipe 99 Pets' }}
+				/>
 			</Stack.Navigator>
 		</View>
 	);
@@ -350,6 +355,11 @@ function PetShop() {
 					name='DriverLocation2'
 					component={DriverLocation2}
 					options={{ ...myOptions, title: 'Motorista a caminho' }}
+				/>
+				<Stack.Screen
+					name='ListSquad'
+					component={ListSquad}
+					options={{ ...myOptions, title: 'Equipe 99 Pets' }}
 				/>
 			</Stack.Navigator>
 		</View>
