@@ -13,7 +13,7 @@ import { Image } from 'react-native';
 import { useState } from 'react';
 
 const ClassifyPet = ({ predict, picture, handleClick }) => {
-	const [animal, setAmimal] = useState('');
+	const [animal, setAmimal] = useState('Cachorro');
 
 	function findNearestAnimal() {
 		let bestScore = 0;

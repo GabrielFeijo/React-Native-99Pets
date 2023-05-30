@@ -93,6 +93,14 @@ const ServicePet = (props) => {
 		setServices(services.filter((val) => val !== value));
 	};
 
+	const confirmService = () => {
+		if (services.length > 0) {
+			props.navigation.navigate('Locations', { services, petid });
+		} else {
+			Alert.alert('Selecione pelo menos um serviço');
+		}
+	};
+
 	useEffect(() => {
 		fetchPet(petid);
 	}, [petid]);
@@ -174,11 +182,7 @@ const ServicePet = (props) => {
 						<ServiceText>Nenhum serviço selecionado!</ServiceText>
 					)}
 				</Services>
-				<Button
-					onPress={() => {
-						props.navigation.navigate('Locations', { services, petid });
-					}}
-				>
+				<Button onPress={confirmService}>
 					<ButtonText>Próximo</ButtonText>
 				</Button>
 			</View>

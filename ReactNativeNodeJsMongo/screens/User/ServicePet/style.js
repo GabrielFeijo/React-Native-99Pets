@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		paddingBottom: 40,
+		paddingBottom: 20,
 	},
 	wrap: {
 		width: '85%',

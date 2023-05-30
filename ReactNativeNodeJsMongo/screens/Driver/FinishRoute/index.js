@@ -18,13 +18,14 @@ const FinishRoute = (props) => {
 		<>
 			<NineMenu />
 			<View style={styles.root}>
+				<View />
 				<Flex>
 					<Image source={require('../../../assets/images/confim.png')} />
 					<Titulo>Rota finalizada!</Titulo>
 				</Flex>
 				<Text>
-					Clique em <MarkedText>Buscar meu pet</MarkedText> para que possamos
-					enviar um motorista ???????? Ué?
+					<MarkedText>Parabéns, motorista!</MarkedText> Rota concluída com
+					sucesso! Continue levando pets com amor e segurança. Você é incrível!
 				</Text>
 
 				<View>

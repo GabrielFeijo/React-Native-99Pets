@@ -117,7 +117,7 @@ export const DriverCard = ({ id, url, nome, info, quantidade }) => {
 
 	return (
 		<TouchableOpacity style={styles.wrap}>
-			<Image source={url} />
+			<Image source={{ uri: url }} />
 			<Description>
 				<Text>{nome}</Text>
 				<Plate>Placa {info}</Plate>

@@ -66,7 +66,8 @@ export const Amount = styled.View`
 export const styles = StyleSheet.create({
 	root: {
 		flex: 1,
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
+		paddingBottom: 10,
 		width: '85%',
 		marginLeft: 'auto',
 		marginRight: 'auto',

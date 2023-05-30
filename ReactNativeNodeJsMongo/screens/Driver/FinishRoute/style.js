@@ -48,7 +48,8 @@ export const Price = styled.Text`
 export const styles = StyleSheet.create({
 	root: {
 		flex: 1,
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
+		paddingBottom: 20,
 		width: '85%',
 		marginLeft: 'auto',
 		marginRight: 'auto',

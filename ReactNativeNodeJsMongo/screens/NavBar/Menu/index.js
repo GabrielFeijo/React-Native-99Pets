@@ -89,7 +89,7 @@ export const NineMenu = (props) => {
 						color='#000000'
 						variant='Bold'
 					/>
-					<Text style={styles.menuText}>Minhas Rotas</Text>
+					<Text style={styles.menuText}>Rotas</Text>
 				</View>
 			</MenuItem>
 			<MenuDivider />
@@ -106,7 +106,7 @@ export const NineMenu = (props) => {
 						color='#000000'
 						variant='Bold'
 					/>
-					<Text style={styles.menuText}>Minha Carteira</Text>
+					<Text style={styles.menuText}>Carteira</Text>
 				</View>
 			</MenuItem>
 		</>
@@ -143,7 +143,7 @@ export const NineMenu = (props) => {
 						color='#000000'
 						variant='Bold'
 					/>
-					<Text style={styles.menuText}>Minha Carteira</Text>
+					<Text style={styles.menuText}>Carteira</Text>
 				</View>
 			</MenuItem>
 		</>
