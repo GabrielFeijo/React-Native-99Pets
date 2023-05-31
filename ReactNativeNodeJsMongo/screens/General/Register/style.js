@@ -27,8 +27,9 @@ export const styles = StyleSheet.create({
 	},
 	wrap: {
 		flex: 2,
-		justifyContent: 'space-around',
+		justifyContent: 'space-between',
 		alignContent: 'center',
+		paddingBottom: 20,
 	},
 	image: {
 		width: 100,

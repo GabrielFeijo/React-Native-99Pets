@@ -32,6 +32,7 @@ import {
 	CommentBox,
 	Name,
 	Comment,
+	DescriptionText,
 } from './style';
 import market from '../../../assets/market.png';
 import { Location, LocationTick } from 'iconsax-react-native';
@@ -128,14 +129,14 @@ export const DriverCard = ({ id, url, nome, info, quantidade }) => {
 	);
 };
 
-export const TeamCard = ({ nome, info, info2, url }) => {
+export const TeamCard = ({ person }) => {
 	return (
 		<TouchableOpacity style={styles.wrap}>
-			<Image source={url} />
+			<Image source={person.url} />
 			<Description>
-				<Text>{nome}</Text>
-				<TextInfo>{info}</TextInfo>
-				<TextInfo>{info2}</TextInfo>
+				<Text>{person.nome}</Text>
+				<TextInfo>{person.info}</TextInfo>
+				<DescriptionText>{person.desc}</DescriptionText>
 			</Description>
 		</TouchableOpacity>
 	);

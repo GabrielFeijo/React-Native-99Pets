@@ -41,7 +41,7 @@ export const Box = styled.View``;
 export const styles = StyleSheet.create({
 	root: {
 		flex: 1,
-		justifyContent: 'center',
+		justifyContent: 'space-evenly',
 
 		alignItems: 'center',
 		gap: 40,

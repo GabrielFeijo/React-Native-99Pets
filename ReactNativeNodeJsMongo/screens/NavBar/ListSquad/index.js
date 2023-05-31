@@ -24,9 +24,7 @@ const ListSquad = (props) => {
 					{Squad.map((person, index) => (
 						<TeamCard
 							key={index}
-							url={person.url}
-							nome={person.nome}
-							info={person.info}
+							person={person}
 						/>
 					))}
 				</ScrollView>

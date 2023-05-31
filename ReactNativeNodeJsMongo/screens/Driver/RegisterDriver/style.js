@@ -14,14 +14,16 @@ export const styles = StyleSheet.create({
 		zIndex: 9999,
 	},
 	root: {
+		minHeight: '100%',
 		flex: 1,
 		alignItems: 'center',
+		justifyContent: 'space-between',
 	},
-
 	wrap: {
 		flex: 1,
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		alignContent: 'center',
+		paddingBottom: 20,
 	},
 	image: {
 		width: 90,

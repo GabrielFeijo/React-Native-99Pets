@@ -22,6 +22,12 @@ export const TextInfo = styled.Text`
 	margin-top: 5px;
 `;
 
+export const DescriptionText = styled.Text`
+	font-family: Montserrat_500Medium;
+	color: rgba(0, 0, 0, 0.57);
+	margin-top: 5px;
+`;
+
 export const Plate = styled.Text`
 	font-family: Montserrat_600SemiBold;
 	font-size: 16px;

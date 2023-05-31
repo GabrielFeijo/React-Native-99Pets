@@ -100,6 +100,7 @@ const RegisterShop = (props) => {
 					style={styles.root}
 				>
 					<View style={styles.wrap}>
+						<View />
 						<Image
 							style={styles.image}
 							source={require('../../../assets/images/rabit.png')}
