@@ -8,6 +8,7 @@ import { ItemCard } from '../../General/Card';
 import { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
+import ChatBot from '../ChatBot';
 
 const StoreCategory = (props) => {
 	const [title, setTitle] = useState('');
@@ -59,6 +60,7 @@ const StoreCategory = (props) => {
 	return (
 		<>
 			<NineMenu />
+			<ChatBot />
 			<View style={styles.wrap}>
 				<Titulo>{title}</Titulo>
 				<ScrollView

@@ -12,6 +12,7 @@ import { Card } from 'iconsax-react-native';
 import Pix from '../../../assets/images/pix.png';
 import { TransferByBank, TransferByPix } from '../PaymentTypes';
 import { useEffect } from 'react';
+import ChatBot from '../ChatBot';
 
 const PaymentMethod = (props) => {
 	const petid = props.route.params.petid;
@@ -45,7 +46,7 @@ const PaymentMethod = (props) => {
 	return (
 		<>
 			<NineMenu />
-
+			<ChatBot />
 			<View style={styles.root}>
 				<View style={styles.wrap}>
 					<Titulo>Pagamento</Titulo>

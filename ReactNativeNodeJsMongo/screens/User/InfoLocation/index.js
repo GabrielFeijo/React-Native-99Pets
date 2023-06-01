@@ -6,6 +6,7 @@ import { NineMenu } from '../../NavBar/Menu';
 import { PetShopCard } from '../../General/Card';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Service, ServiceText } from '../ServicePet/style';
+import ChatBot from '../ChatBot';
 
 const InfoLocation = (props) => {
 	const [Local, setLocal] = useState(false);
@@ -17,7 +18,7 @@ const InfoLocation = (props) => {
 	return (
 		<>
 			<NineMenu />
-
+			<ChatBot />
 			<View style={styles.root}>
 				<View style={styles.wrap}>
 					<Titulo>Qual Petshop?</Titulo>

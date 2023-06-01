@@ -5,6 +5,7 @@ export default Squad = [
 		nome: 'Gabriel Feijó',
 		info: 'Desenvolvedor',
 		desc: 'Codificando o futuro com paixão e inovação!',
+		link: 'https://www.linkedin.com/in/gabriel-feijo/',
 	},
 	{
 		index: 1,
@@ -12,13 +13,15 @@ export default Squad = [
 		nome: 'Aynoã dos Santos',
 		info: 'Designer UI/UX',
 		desc: 'Mentes brilhantes criando soluções para o mundo digital!',
+		link: 'https://www.linkedin.com/in/aynoã-santos/',
 	},
 	{
 		index: 2,
 		url: require(`../../assets/images/squad/torres.png`),
 		nome: 'Raphael Torres',
-		info: 'Cientista de Dados',
+		info: 'Engenheiro de IA',
 		desc: 'Liderando a revolução tecnológica com talento e dedicação!',
+		link: 'https://www.linkedin.com/in/raphael-torres-cs/',
 	},
 	{
 		index: 3,
@@ -26,13 +29,15 @@ export default Squad = [
 		nome: 'Alvimar Felipe',
 		info: 'DBA',
 		desc: 'Desenvolvedores, transformando ideias em realidade!',
+		link: 'https://www.linkedin.com/in/alvimar-felipe-0103a5210/',
 	},
 	{
 		index: 4,
 		url: require(`../../assets/images/squad/caio.jpg`),
 		nome: 'Caio Ranyel',
 		info: 'Documentação',
-		desc: 'Do algoritmo ao impacto, estamos moldando o futuro',
+		desc: 'Do algoritmo ao impacto, estamos moldando o futuro!',
+		link: 'https://www.linkedin.com/in/caioranyel/',
 	},
 	{
 		index: 5,
@@ -40,12 +45,14 @@ export default Squad = [
 		nome: 'Arthur Silva',
 		info: 'BackEnd/Dados',
 		desc: 'Criação e programação, o poder está nas nossas mãos!',
+		link: 'https://www.linkedin.com/in/arthur-silva-62083721b/',
 	},
 	{
 		index: 6,
 		url: require(`../../assets/images/squad/matheus.jpg`),
 		nome: 'Matheus Felipe',
 		info: 'Testes do APP',
-		desc: 'No mundo dos bits e bytes, somos os mestres da criação.',
+		desc: 'No mundo dos bits e bytes, somos os mestres da criação!',
+		link: 'https://www.linkedin.com/in/matheus-silva-098710232/',
 	},
 ];

@@ -15,6 +15,7 @@ import {
 import { NineMenu } from '../../NavBar/Menu';
 import { Button, ButtonText } from '../../General/Home/style';
 import { Service, ServiceText } from '../ServicePet/style';
+import ChatBot from '../ChatBot';
 
 const PaymentConfirmed = (props) => {
 	const services = props.route.params.services;
@@ -23,6 +24,7 @@ const PaymentConfirmed = (props) => {
 	return (
 		<>
 			<NineMenu />
+			<ChatBot />
 			<View style={styles.root}>
 				<View />
 				<Flex>

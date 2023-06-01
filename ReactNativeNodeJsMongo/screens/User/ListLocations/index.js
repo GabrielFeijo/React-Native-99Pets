@@ -9,6 +9,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import PetShops from '../../PetShops/main';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../../axios/config';
+import ChatBot from '../ChatBot';
 
 const Locations = (props) => {
 	console.log(props);
@@ -38,6 +39,7 @@ const Locations = (props) => {
 	return (
 		<>
 			<NineMenu />
+			<ChatBot />
 			<View style={styles.wrap}>
 				<ScrollView
 					showsVerticalScrollIndicator={false}

@@ -7,6 +7,7 @@ import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import api from '../../../axios/config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ChatBot from '../ChatBot';
 
 const DriverLocation = (props) => {
 	const [region, setRegion] = useState(null);
@@ -77,7 +78,7 @@ const DriverLocation = (props) => {
 	return (
 		<>
 			<NineMenu />
-
+			<ChatBot />
 			<View style={styles.root}>
 				<Titulo>Seu motorista está a caminho</Titulo>
 				<View style={styles.wrap}>

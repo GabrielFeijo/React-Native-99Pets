@@ -73,7 +73,7 @@ const CatchPet = (props) => {
 							}}
 							pinColor={'red'} // any color
 							title={'Sua Localização'}
-							description={'O motorista está chegando!'}
+							description={'Você está aqui!'}
 						/>
 						<Marker
 							coordinate={{
@@ -81,8 +81,8 @@ const CatchPet = (props) => {
 								longitude: Number(initialRegion.longitude) - 0.003,
 							}}
 							pinColor={'blue'} // any color
-							title={'Localização do motorista'}
-							description={'Aguarde estou chegando!'}
+							title={'Localização do pet'}
+							description={'O pet está lhe aguardando!'}
 						/>
 					</MapView>
 				)}

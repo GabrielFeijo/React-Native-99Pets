@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Platform,StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export const Box = styled.View`
 	background-color: white;
@@ -46,11 +46,13 @@ export const Price = styled.Text`
 	font-size: 20px;
 	color: rgba(0, 0, 0, 0.57);
 `;
+
 export const Flex = styled.View`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 `;
+
 export const FlexBox = styled.View`
 	height: 350px;
 	display: flex;
@@ -65,10 +67,16 @@ export const Button = styled.TouchableOpacity`
     border: none;
     margin:10px 0;
     transition: 0.5s;
-	box-shadow: 0px 8px 24px #0c0c0c1a;
-	filter: drop-shadow(0px 8px 24px rgba(12, 12, 12, 0.1));
+	
+
+	${
+		Platform.OS === 'android'
+			? `elevation: 3;`
+			: `box-shadow: 0px 8px 24px #0c0c0c1a;`
+	}
 }
 `;
+
 export const ButtonText = styled.Text`
 	color: #ffffff;
 	text-align: center;

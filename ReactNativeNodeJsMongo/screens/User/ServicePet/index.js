@@ -8,6 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Icon } from 'react-native-elements';
 import api from '../../../axios/config';
+import ChatBot from '../ChatBot';
 
 const pickerSelectStyles = StyleSheet.create({
 	inputIOS: {
@@ -140,7 +141,7 @@ const ServicePet = (props) => {
 	return (
 		<>
 			<NineMenu />
-
+			<ChatBot />
 			<View style={styles.root}>
 				<View style={styles.wrap}>
 					{pet && (

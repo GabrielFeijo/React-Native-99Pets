@@ -7,6 +7,7 @@ import { Button, ButtonText } from '../../General/Home/style';
 import QrCode from '../../../assets/images/qrcode.png';
 import { DocumentCopy } from 'iconsax-react-native';
 import * as Clipboard from 'expo-clipboard';
+import ChatBot from '../ChatBot';
 
 const PixMethod = (props) => {
 	const services = props.route.params.services;
@@ -20,7 +21,7 @@ const PixMethod = (props) => {
 	return (
 		<>
 			<NineMenu />
-
+			<ChatBot />
 			<View style={styles.wrap}>
 				<Titulo>Código pix gerado</Titulo>
 

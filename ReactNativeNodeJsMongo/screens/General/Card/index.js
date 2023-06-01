@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Linking, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import {
 	Text,
@@ -130,8 +130,14 @@ export const DriverCard = ({ id, url, nome, info, quantidade }) => {
 };
 
 export const TeamCard = ({ person }) => {
+	const OpenWeb = (url) => {
+		Linking.openURL(url);
+	};
 	return (
-		<TouchableOpacity style={styles.wrap}>
+		<TouchableOpacity
+			style={styles.wrap}
+			onPress={() => OpenWeb(person.link)}
+		>
 			<Image source={person.url} />
 			<Description>
 				<Text>{person.nome}</Text>

@@ -11,7 +11,6 @@ import {
 	EmptyWallet,
 	HambergerMenu,
 	Logout,
-	RouteSquare,
 	Routing,
 } from 'iconsax-react-native';
 
@@ -53,6 +52,23 @@ export const NineMenu = (props) => {
 						size={35}
 					/>
 					<Text style={styles.menuText}>Meus Animais</Text>
+				</View>
+			</MenuItem>
+			<MenuDivider />
+			<MenuItem
+				onPress={() => {
+					hideMenu();
+					navigation.navigate('MarketPlace');
+				}}
+				style={styles.menu}
+			>
+				<View style={styles.viewMenu}>
+					<Icon
+						name='shopping-cart'
+						type='Foundation'
+						size={35}
+					/>
+					<Text style={styles.menuText}>MarketPlace</Text>
 				</View>
 			</MenuItem>
 			<MenuDivider />
