@@ -216,12 +216,12 @@ function User() {
 				<Stack.Screen
 					name='MarketPlace'
 					component={MarketPlace}
-					options={{ ...myOptions, title: 'MakertPlace' }}
+					options={{ ...myOptions, title: 'MarketPlace' }}
 				/>
 				<Stack.Screen
 					name='StoreCategory'
 					component={StoreCategory}
-					options={{ ...myOptions, title: 'MakertPlace', headerLeft: null }}
+					options={{ ...myOptions, title: 'MarketPlace' }}
 				/>
 			</Stack.Navigator>
 		</View>
