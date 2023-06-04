@@ -20,7 +20,7 @@ export const MainButton = styled.TouchableOpacity`
 
     min-width: 85%;
     padding: 10px;
-    background-color: #FFBD59;
+    background-color: #63C5DA;
     border-radius: 16px;
     border: none;
     margin:10px 0;

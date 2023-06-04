@@ -19,7 +19,7 @@ export const Text = styled.Text`
 export const Pet = styled.Text`
 	font-family: Montserrat_700Bold;
 	font-size: 16px;
-	color: #fbaf5e;
+	color: #0492c2;
 `;
 
 export const ButtonRefuse = styled.TouchableOpacity`
@@ -39,7 +39,7 @@ export const ButtonRefuse = styled.TouchableOpacity`
 `;
 
 export const ButtonRefuseText = styled.Text`
-	color: #ffbd59;
+	color: #63c5da;
 	text-align: center;
 	font-size: 20px;
 	font-family: OpenSans_700Bold;

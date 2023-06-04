@@ -24,7 +24,7 @@ export const DetailsText = styled.Text`
 export const MarkedText = styled.Text`
 	font-family: Montserrat_700Bold;
 	font-size: 16px;
-	color: #fbaf5e;
+	color: #0492c2;
 `;
 export const Flex = styled.View`
 	display: flex;

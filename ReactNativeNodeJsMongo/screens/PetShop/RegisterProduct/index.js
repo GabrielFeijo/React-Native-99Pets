@@ -336,7 +336,7 @@ const RegisterProduct = (props) => {
 
 const theme = {
 	colors: {
-		primary: '#FFBD59',
+		primary: '#63C5DA',
 	},
 };
 

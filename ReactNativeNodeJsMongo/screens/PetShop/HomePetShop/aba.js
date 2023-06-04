@@ -14,7 +14,7 @@ export const lista = [
 		icon: (
 			<Pet
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Pets',
@@ -25,7 +25,7 @@ export const lista = [
 		icon: (
 			<Reserve
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Serviços',
@@ -36,7 +36,7 @@ export const lista = [
 		icon: (
 			<EmptyWallet
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Carteira',
@@ -47,7 +47,7 @@ export const lista = [
 		icon: (
 			<MoneySend
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Produtos',
@@ -58,7 +58,7 @@ export const lista = [
 		icon: (
 			<Diagram
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Avaliações',
@@ -69,7 +69,7 @@ export const lista = [
 		icon: (
 			<BagHappy
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Meu Petshop',

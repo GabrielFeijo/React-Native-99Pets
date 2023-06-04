@@ -50,6 +50,7 @@ export const NineMenu = (props) => {
 						name='guide-dog'
 						type='foundation'
 						size={35}
+						color={'rgba(0, 0, 0, 0.7)'}
 					/>
 					<Text style={styles.menuText}>Meus Animais</Text>
 				</View>
@@ -67,6 +68,7 @@ export const NineMenu = (props) => {
 						name='shopping-cart'
 						type='Foundation'
 						size={35}
+						color={'rgba(0, 0, 0, 0.7)'}
 					/>
 					<Text style={styles.menuText}>MarketPlace</Text>
 				</View>
@@ -84,6 +86,7 @@ export const NineMenu = (props) => {
 						name='shop'
 						type='entypo'
 						size={35}
+						color={'rgba(0, 0, 0, 0.7)'}
 					/>
 					<Text style={styles.menuText}>Pet Shops</Text>
 				</View>
@@ -102,7 +105,7 @@ export const NineMenu = (props) => {
 				<View style={styles.viewMenu}>
 					<Routing
 						size='35'
-						color='#000000'
+						color='rgba(0, 0, 0, 0.7)'
 						variant='Bold'
 					/>
 					<Text style={styles.menuText}>Rotas</Text>
@@ -119,7 +122,7 @@ export const NineMenu = (props) => {
 				<View style={styles.viewMenu}>
 					<EmptyWallet
 						size='35'
-						color='#000000'
+						color='rgba(0, 0, 0, 0.7)'
 						variant='Bold'
 					/>
 					<Text style={styles.menuText}>Carteira</Text>
@@ -139,7 +142,7 @@ export const NineMenu = (props) => {
 				<View style={styles.viewMenu}>
 					<BagHappy
 						size='35'
-						color='#000000'
+						color='rgba(0, 0, 0, 0.7)'
 						variant='Bold'
 					/>
 					<Text style={styles.menuText}>Meu PetShop</Text>
@@ -156,7 +159,7 @@ export const NineMenu = (props) => {
 				<View style={styles.viewMenu}>
 					<EmptyWallet
 						size='35'
-						color='#000000'
+						color='rgba(0, 0, 0, 0.7)'
 						variant='Bold'
 					/>
 					<Text style={styles.menuText}>Carteira</Text>
@@ -194,6 +197,7 @@ export const NineMenu = (props) => {
 							name='people'
 							type='simplelineicons'
 							size={35}
+							color={'rgba(0, 0, 0, 0.7)'}
 						/>
 						<Text style={styles.menuText}>Equipe</Text>
 					</View>

@@ -38,7 +38,7 @@ export const Plate = styled.Text`
 export const Label = styled.Text`
 	font-family: OpenSans_600SemiBold;
 	font-size: 20px;
-	color: rgba(251, 175, 94, 1);
+	color: #0492c2;
 `;
 
 export const WalletText = styled.Text`
@@ -212,7 +212,7 @@ export const HistoryInfo = styled.Text`
 `;
 export const RouteStatus = styled.Text`
 	font-family: Montserrat_700Bold;
-	color: #fbaf5e;
+	color: #0492c2;
 	margin: 8px 0;
 `;
 export const AnimalText = styled.Text`

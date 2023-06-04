@@ -60,21 +60,17 @@ export const FlexBox = styled.View`
 `;
 
 export const Button = styled.TouchableOpacity`
-	width:45%;
-    padding: 15px;
-    background-color: #FFBD59;
-    border-radius: 16px;
-    border: none;
-    margin:10px 0;
-    transition: 0.5s;
-	
+	width: 45%;
+	padding: 15px;
+	background-color: #63c5da;
+	border-radius: 16px;
+	border: none;
+	margin: 10px 0;
+	transition: 0.5s;
 
-	${
-		Platform.OS === 'android'
-			? `elevation: 3;`
-			: `box-shadow: 0px 8px 24px #0c0c0c1a;`
-	}
-}
+	${Platform.OS === 'android'
+		? `elevation: 3;`
+		: `box-shadow: 0px 8px 24px #0c0c0c1a;`}
 `;
 
 export const ButtonText = styled.Text`
@@ -85,24 +81,21 @@ export const ButtonText = styled.Text`
 `;
 
 export const ButtonRefuse = styled.TouchableOpacity`
-	width:45%;
-    padding: 15px;
-    border-radius: 16px;
-    border: none;
-    margin:10px 0;
-    transition: 0.5s;
+	width: 45%;
+	padding: 15px;
+	border-radius: 16px;
+	border: none;
+	margin: 10px 0;
+	transition: 0.5s;
 	background-color: #fff;
 
-	${
-		Platform.OS === 'android'
-			? `elevation: 3;`
-			: `box-shadow: 0px 8px 24px rgba(12, 12, 12, 0.1);`
-	}
-}
+	${Platform.OS === 'android'
+		? `elevation: 3;`
+		: `box-shadow: 0px 8px 24px rgba(12, 12, 12, 0.1);`}
 `;
 
 export const ButtonRefuseText = styled.Text`
-	color: #ffbd59;
+	color: #63c5da;
 	text-align: center;
 	font-size: 20px;
 	font-family: OpenSans_700Bold;

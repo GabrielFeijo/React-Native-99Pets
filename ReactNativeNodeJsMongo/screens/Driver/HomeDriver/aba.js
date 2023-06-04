@@ -6,7 +6,7 @@ export const lista = [
 		icon: (
 			<Car
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Minhas rotas',
@@ -17,7 +17,7 @@ export const lista = [
 		icon: (
 			<EmptyWallet
 				size='48'
-				color='#FBAF5E'
+				color='#0492C2'
 			/>
 		),
 		nome: 'Carteira',

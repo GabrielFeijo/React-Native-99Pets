@@ -31,7 +31,7 @@ const PixMethod = (props) => {
 					<Text>000.9278293.82.1234444/7723 2.codigo.pix/copia&cola/copia</Text>
 					<Flex onPress={setClipboardString}>
 						<CopyText>Copiar código pix</CopyText>
-						<DocumentCopy color='#ffbd59' />
+						<DocumentCopy color='#63C5DA' />
 					</Flex>
 					<Text>Total: R$ {amount.toFixed(2).replace('.', ',')}</Text>
 

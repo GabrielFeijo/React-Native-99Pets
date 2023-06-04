@@ -53,7 +53,7 @@ const PetshopWallet = (props) => {
 						icon={
 							<EmptyWallet
 								size='48'
-								color='#FBAF5E'
+								color='#0492C2'
 							/>
 						}
 					/>
@@ -62,7 +62,7 @@ const PetshopWallet = (props) => {
 						icon={
 							<EmptyWallet
 								size='48'
-								color='#FBAF5E'
+								color='#0492C2'
 							/>
 						}
 						handleClick={() => props.navigation.navigate('TransferMoney')}

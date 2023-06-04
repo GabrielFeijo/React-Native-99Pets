@@ -60,7 +60,7 @@ const myOptions = {
 	title: '99 Pets',
 	headerTintColor: 'white',
 	headerStyle: {
-		backgroundColor: '#FFBD59',
+		backgroundColor: '#63C5DA',
 	},
 };
 

@@ -24,7 +24,7 @@ export const Flex = styled.TouchableOpacity`
 export const CopyText = styled.Text`
 	font-family: Montserrat_700Bold;
 	font-size: 20px;
-	color: #ffbd59;
+	color: #63c5da;
 	margin-right: 20px;
 `;
 

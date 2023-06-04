@@ -6,7 +6,7 @@ export const MainButton = styled.TouchableOpacity`
 
     width: 297px;
     padding: 10px;
-    background-color: #FFBD59;
+    background-color: #63C5DA;
     border-radius: 16px;
     border: none;
     margin:10px auto;
@@ -18,7 +18,7 @@ export const ButtonDelete = styled.TouchableOpacity`
     width: 297px;
     padding: 10px;
     background-color: #F2F2F2;
-    border:2px solid #FFBD59;
+    border:2px solid #63C5DA;
     border-radius: 16px;
    
     margin:10px auto;
@@ -72,7 +72,7 @@ export const styles = StyleSheet.create({
 		height: 50,
 	},
 	color: {
-		color: '#FFBD59',
+		color: '#63C5DA',
 	},
 	input: {
 		width: 350,

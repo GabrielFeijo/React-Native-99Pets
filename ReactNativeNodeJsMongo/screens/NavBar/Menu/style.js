@@ -21,10 +21,10 @@ export const styles = StyleSheet.create({
 		width: 230,
 
 		borderRadius: 10,
-		backgroundColor: '#FFBD59',
+		backgroundColor: '#63C5DA',
 	},
 	menu: {
-		backgroundColor: '#FFBD59',
+		backgroundColor: '#63C5DA',
 		height: 65,
 		borderRadius: 10,
 		paddingLeft: 10,
@@ -33,6 +33,7 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Montserrat_500Medium',
 		fontSize: 20,
 		paddingLeft: 10,
+		color: 'rgba(0, 0, 0, 0.7)',
 	},
 	viewMenu: {
 		flex: 1,

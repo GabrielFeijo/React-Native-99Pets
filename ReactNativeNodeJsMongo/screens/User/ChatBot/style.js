@@ -80,7 +80,7 @@ export const Input = styled.TextInput`
 export const SendButton = styled.TouchableOpacity`
 	width: 56px;
 	height: 56px;
-	background-color: #ffbd59;
+	background-color: #63c5da;
 	border-radius: 100px;
 	display: flex;
 	align-items: center;
