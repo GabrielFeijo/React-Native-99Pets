@@ -25,7 +25,7 @@
 
 11. Resultado:
 
-* ![React 99Pets](https://media.discordapp.net/attachments/786006828466044931/1051314346292158554/tela1.png) ![React 99Pets](https://media.discordapp.net/attachments/786006828466044931/1051314346631905321/tela2.png)   ![React 99Pets](https://media.discordapp.net/attachments/786006828466044931/1051314345889501217/tela3.png)
+* ![React 99Pets](https://i.imgur.com/CIjRIJN.png) ![React 99Pets](https://i.imgur.com/z4WGKa1.png)   ![React 99Pets](https://i.imgur.com/feoT5Ce.png)
 
 
 ​    
